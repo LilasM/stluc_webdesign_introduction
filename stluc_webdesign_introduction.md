@@ -1,34 +1,16 @@
 # Introduction au web design
 
+## Comment cela fontionne ?
+
 - Personne ne va sur Internet
+
+*Exercices: DNS et traceroute*
 
   - schema client | serveur et technologies liées
   - technologies front-end (navigateur)
   - technologies back-end (serveur, bases de données, API)
 
-*Exercices: DNS et traceroute*
-
-- Web vs Native
-
-  - avantages native
-  - avantages web
-
-- Internet entre contenus et interactivité
-
-  - tous les sites de contenus ont des éléments interactifs (recherche, compte utilisateur, etc)
-  - tous les sites intaractifs ou applicatifs ont des élements de contenus
-
-*Exercice: évaluer divers sites*
-
-- Internet un medium fluide
-
- - Première inconnue: le canevas
- - Deuxième inconnue: les capacités (techniques) du navigateur et du terminal
- - Troisième inconnue: le contexte (humain) d’utilisation
-
-Pour résoudre ces inconnues, on part des contenus (content first) et des contraintes maximales (mobile first et progessive enhancement)
-
-## 1. Technologies web front-end: HTML/CSS/JS
+Nous nous concentrerons sur les technologies front-end
 
 - HTML: Utilise des balises et des attributs pour définir la structure et la sémantique du document. Fontionne par emboitement hiérarchisé (DOM). C'est le premier document qui chargé par le navigateurs et qui appelle la plupart des fichiers externes.
 - CSS: Utilise des sélecteurs, des propriéts et des valeurs pour définir la mise ne page du document et les styles graphiques des divers éléments. Fontionne par cascade, spécificité et poids.
@@ -48,6 +30,26 @@ Une page web lie également vers de nombreux fichiers externes
 
 *Exercice, voir l'onglet "network" dans Google Chrome.*
 
+## 1. The web grain
+
+Intro et article de Frank Chimero
+
+### Web vs Native
+### Internet entre contenus et interactivité
+### Design for the unknown
+
+- Première inconnue: le canevas
+- Deuxième inconnue: les capacités du navigateur et du terminal
+- Troisième inconnue: le contexte (humain) d’utilisation
+
+### Grand principes du design web
+
+Les principales différences entre le design web et le design print ou audiovisuel viennent de ces inconnes et de la nécessité d'y répondre
+
+- content first, mobile first, responsive pour répondre à l'inconnue du canevas
+- progressive enhancement pour répondre à l'inconnue des capacités du navigateur et du terminal
+- user centered design et itérations pour répondre à l'inconnue du contexte d'utilisation
+
 ## 2. Typographie
 
 90% d'un site web ou d'une application c'est du texte. Commençons par là. Peut-on utiliser toutes les polices de caractères online. La réponse est "non, mais cela va mieux qu'auparavant" où l'on ne disposait que des fontes disponibles sur l'ordinateur du client. Il fallait travailler avec seulement quelques fontes et offrir à l'ordianteur client une série limitée d'options possibles. Aujourd'hui, il est possible de demander au navigateur client de télécharger un ou plusieurs fichiers de police précis et de les utiliser pour faire le rendu de la page ou de la vue.
@@ -60,7 +62,7 @@ Une page web lie également vers de nombreux fichiers externes
 
 *Exercice: Google Font*
 
-### Choisir une ou plusiseures polices
+### Choisir une ou plusieures polices
 
 Limiter sses choix. On travaille en général avec une ou deux polices maximum et quelques variantes de graisse. Tout à un coût en terme de téléchargement.
 
@@ -92,12 +94,38 @@ Limiter sses choix. On travaille en général avec une ou deux polices maximum e
 
 ## 3. Media: Images, Icones, Video et Sons
 
-@TODO
+### Icones
+
+- SVG est le standard
+
+### Images
+
+- Images de contenus
+  - Images fluides (CSS)
+  - Images responsives (performance)
+- Images de background
+- Filtres CSS
+- Filtres et masques SVG
+
+### Videos
+
+- Videos HTML5
+- Services comme Youtube et Vimeo
+- Videos fluides
+- API video
 
 ## 4. Layout: Grilles et outils CSS
 
-@TODO
+- Grilles fluides simples (10, 12, etc)
+- Grilles fluides proportionnelles (golden ratio)
+- Flexbox
+- Grid Layout
+- Responsive design et flexbox
+- Responsive design et CSS Grid
 
 ## 5. Transitions et Animations
 
-@TODO
+- Transitions CSS
+- Animations CSS avec changelents de classes
+- Animations Javascript
+- Animations au scroll
