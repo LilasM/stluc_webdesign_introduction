@@ -16,6 +16,8 @@ Nous nous concentrerons essentiellement ici sur les technologies **front-end**, 
 
 Le monde du **back-end** est celui de la logique qui se produit côté serveur et qui sert essentiellement à fournir des données au site ou à l'application que vous utilisez. Ces données sont fournies par une base de données ou par des API (Application Programming Interface). Les technologies du back-end sont des langages de programmation comme Ruby, PHP, Python, Go, Node et des frameworks qui y sont liés (Rails, YII, Laravel, Django, etc.).
 
+Les frameworks sont en quelque sorte des boites à outils pour les dévelopeurs qui sont construites sur base de divers languages back-end ou front-end. Si vous voulez une analogie, c'est un peu comme disposer de Lego Technics. Cela aide pour construire des choses un peu plus complexes.
+
 N'oublions pas non plus l'infrastructure: les bases de données (MySQL, PostGresSQL, MongoDB, etc.), les serveurs web eux-mêmes comme Apache, NginX ou encore UNIX et Linux, les OS sur lesquels tournent la plupart d'entre eux.
 
 ## Technologies front-end
@@ -91,7 +93,7 @@ Si le sujet vous intéresse, [Mozilla Developer Network (MDN) possède un très 
 
 Javascript est le language de programmation côté client permettant de scripter le navigateur pour créer des interactions complexes et pour utiliser les API du navigateurs ou des API externes. Au départ un langage de scripting, l'évolution actuelle de Javascript tend de plus en plus vers un langage de programmation à part entière qui peut aujourd'hui également être utilisé côté serveur (Node).
 
-De nombreux sites ou applications ont également porté une grande partie de la logique vers le côté client. C'est particulioèrement vrai pour tout ce qui est single page applications (SPA) qui sont devenues très populaires. Ces dernières font usage de frameworks JavaScript (React, Vue, Ember, Angular, etc.) permettant de gérer les différents états d'une application et d'avoir des composants qui y répondent.
+De nombreux sites ou applications ont également porté une grande partie de la logique vers le côté client. C'est particulièrement vrai pour tout ce qui est Single Page Applications (SPA). Ces dernières font usage de frameworks JavaScript (React, Vue, Ember, Angular, etc.) permettant de gérer les différents états d'une application et d'avoir des composants qui y répondent.
 
 ```js
 window.addEventLister("load", function() {
@@ -306,7 +308,9 @@ Cette méthodologie forme également une bonne base si vous n'avez qu'un u deux 
 
 ## Design web en pratique
 
-Après avoir introduit le sujet par un peu de théorie, passons à la pratique. La suite de ce cours essaye d'être un petit guide pratique pour réaliser efficacement des designs pour le web, qu'il s'agisse d'un site ou d'une application. Voici le plan de bataille.
+Après avoir introduit le sujet par un peu de théorie, passons à la pratique. La suite de ce cours essaye d'être un petit guide pratique pour réaliser efficacement des designs pour le web, qu'il s'agisse d'un site ou d'une application.
+
+Voici le plan de bataille:
 
 1. Recherche et stratégie
 2. Couleurs et palette
@@ -318,27 +322,40 @@ Après avoir introduit le sujet par un peu de théorie, passons à la pratique. 
 
 ## 1. Recherche et stratégie
 
-- publics cibles
-- Besoins et aubjectifs
-- competitive audit
-- contenus et structure de données
-- Design brief
-- concepts
+Avant de commencer à designer un site ou une application, il convient de savoir où l'on va. C'est le but de la phase de recherche qui vise à cerner les tenants et aboutissants du projet, tant du point de vue des utilisateurs (publics cibles, besoins, contexte) que tu business (objectifs, KPI, compétition).
+
+La permière chose à faire est de bien cerner quels sont les publics cibles. Pour cela, rien ne remplce un contact direct avec des utilisateurs ou, à défaut, un concat avec les responsables du support ou du marketting qui sont en contact direct. De simples activités comme un future perfect / pitch, des [proto-personas](https://uxmag.com/articles/using-proto-personas-for-executive-alignment) (voici des [photos utilisables créées par Jason Travis](http://www.jasontravisphoto.com/persona/)) et quelques [job stories](https://jtbd.info/replacing-the-user-story-with-the-job-story-af7cdee10c27) par persona peuvent déjà s'avérer très utiles.
+
+En regard des personas, il importe de se pencher sur les objectifs business. Pour chaque personas, demandez-vous comment votre site ou votre application peut les aider. De manière plus générale, quels sont les indicateurs (mesurables) qui vous permettrons de dire si votre projets à atteints ses objectifs et rencontre les besoins de clients.
+
+Lors de cette phase de recherche, il est bon de se pencher sur la compétition. Quels sont les sites ou les aplications qui répondent aux même besoins. Quels sont leurs points forts et leurs points faibles.
+
+Au niveau du design, deux exercices sont assez utiles.
+
+- *Adjectifs et priorités*: demander aux représentants du client de noter sur un post-it trois adjectifs qu'ils souhaitent que les clients ressentent en visitant son site ou en utilisant son application. Chacun vote ensuite pour deux adjectifs et les trois plus important sont classés par priorité.
+- *Design brief à l'instinct*: rassembler 15 à 20 sites ou applications avec des styles graphique très différents. Ces exemples sont passés en revu et chacun donne une note de 1 à 5. Une fois les moyennes établie, discuter des 3 premiers et ddes trois derniers vous donnera un bon design brief.
+
+Les dernières choses à aborder tiennent à la structure générale de l'application ou du site. Une architecture d'information et / ou des [wireflows](https://www.nngroup.com/articles/wireflows/) réalisés en petits groupes peuvent vous donner une bonne approximation de la structure souhaitée. Il s'agit d'un élément important dans la mesure où il va être matérialisé par les divers interfaces de navigation qui sont une contrainte importante au niveau du design.
 
 ## 2. Couleurs
 
-- couleurs principales, couleurs secondaires, couleurs neutres
-- créer une palette à partir d'une photo / de la nature
-- créer une palette à partir des règles de la color wheel
-- ne jamais utiliser de noir
-- outils pratiques: layers blend
-- outils pratiques: adobe colors ou colors
+Là aussi, il vous faudra faire preuve de mesure. Dans la plupart des cas, une couleur principale (déclinée) et une couleur d'accent (déclinée également) ainsi que quelques gris (basés sur votre couleur principale) pour les couleurs neutres suffiront largement. Certaines applications ou sites ont des palettes de couleurs plus étendues mais il est préférable de rester simple au début.
+
+Commencer par choisir une couleur principale en rapport avec votre branding ou qui vous plait. Pour le choix de la couleur complémentaire, des outils peuvent vous aider, comme [Adobe Color CC](https://color.adobe.com/create/color-wheel/) ou [Coolors](https://coolors.co/). Pensez également à aller faire un tour sur [Dribbble](https://dribbble.com/colors/3116EF) et à utiliser l'outil de recherche par couleur pour immédiatement avoir un grand choix de couleur complémentaires.
+
+Une fois que vous avez deux (maximum trois) couleurs complémentaires, vous pouvez utiliser votre application de design favorite et [des techniques reposant sur des layers](https://www.smashingmagazine.com/2017/07/advanced-color-palettes-photoshop-sketch-affinity-designer/) pour démultiplier vos options tout en restant dans la gamme. Il vous reste ensuite à déterminer une gamme de gris contenant votre couleur principale et vous voilà paré.
+
+Une autre méthode efficace pour cérer une palette de de couleurs harmonieuse consiste à partir de photos de paysage / de nature. Adobe Color CC possède une fonction qui vous y aidera.
+
+Un dernier conseil, [évitez le noir pur dans vos palettes](https://ianstormtaylor.com/design-tip-never-use-black/). Afin dêtre dans la gamme partez plutôt de votre couleur de base et saturez-là pour obtenir une couleur proche du noir mais qui conteient votre couleur de base.
+
+*Exercice: créer une palette de couleurs simple*
 
 ## 3. Typographie
 
 Comme le dit fort justement Oliver Reichenstein, [le texte compose 95% d'un site web ou d'une application](https://ia.net/topics/the-web-is-all-about-typography-period). La typographie est donc une étape importante dans la conception de tout produit digital. Comme nous l'avons vu plus haut, nous disposons maintenant avec `@font-face` et les services de distribution de fontes tels que Google Fonts ou Typekit d'une grande variété de polices.
 
-Se pose donc la question du choix des fonts à utiliser pour un projet donné. Comment faire un choix pertinent ?
+Se pose donc la question du choix des fonts à utiliser pour un projet donné. Comment faire un choix pertinent?
 
 ### Choisir une ou plusieurs polices
 
@@ -349,12 +366,23 @@ général on travaillera donc avec une ou deux polices maximum et un nombre limi
 
 Votre premier choix devra sans doute être la police que vous utiliserez pour votre corps de texte. Il vous faut une police solide et de lisible qui permettra aux autres éléments textuels importants (titres, calls to action) de ressortir. Préférez des polices avec une x-height élevée et peu de fioritures. Soyez également attentif à ce que la police choisie possède plusieurs graisses et variantes (au moins bold et italique). Les polices avec plusieurs graisses sont intéressantes de par la variété potentielle qu'elles proposent.
 
-Si vous vous posez des questions, regardez simplment dans quel but ou contexte la police que vous considérez a été dévelopée, explorez son histoire. Des services tels que Typekit ou Google fonts vous donnerons des reseignements précieux. Ces services possèdent également des spécimens qui vous permettrons de mieux appréhender les caractéristiques des divers fontes proposées. Allez également faire un petit tour du côté des sites tels que [Typewolf](https://www.typewolf.com/) ou
+Si vous vous posez des questions, regardez simplment dans quel but ou contexte la police que vous considérez a été dévelopée, explorez son histoire. Des services tels que Typekit ou Google fonts vous donnerons des reseignements précieux. Ces services possèdent également des spécimens qui vous permettrons de mieux appréhender les caractéristiques des divers fontes proposées. Allez également faire un petit tour du côté des sites tels que [Typewolf](https://www.typewolf.com/), [Fonts in Use](https://fontsinuse.com/) ou [Dribbble](https://fontsinuse.com/).
 
-- se renseigner sur l'oirigine de la fonte
-- super families
-- polices du même designer / fondrie
-- polices ayant des caractéristiques communes
+Un exercice difficile en typographie consiste à trouver plusieurs polices qui vont fonctionner ensemble dans un design. Une fois votre police de coprs de texte choisie, vous avez plusieurs options:
+
+- Superfamilies: certaines polices forment une famille de polices et sont designées comme telles. Elles contiennent souvent des polices ayant différents styles (serif et sans-serif par exemple), utilisables à différentes tailles (caption, display, etc.) ou ayant différentes approches / kernings (Normal, Condensed, Extended). En voici quelues exemples sur Typekit: Calluna et Calluna Sans, Freight Text et Freight Sans, etc.
+- Designer / Fondrie identique: voici un raccourci par rapport au point suivant. En général, des polices même différentes au premier regard on pas mal de caractéristiques communes si elles sont designées par la même personne ou la même fondrie. Pensez donc à aller voir de ce côté lorsque vous cherche un accord entre deux polices.
+- Caractéristiques communes: cherchez des polices qui sont suffisemment différentes que pour êtres distinguées l'une de l'aure facilement mais qui ont des caractéristiques communes (formes des lettres, x-height, etc.) ou qui ont été délopée dans un même contexte ou selon un conceopt similaire.
+- Outils: des outils et services tels que Google Fonts ou Typekit vous proposent des pistes intéressantes pur le font pairing. N'hésitez pas non plus à inspecter des sites que vous appréciez au niveau typographique.
+
+*Exercice: voici [quelques](http://femmebot.github.io/google-type/) [exemples](http://hellohappy.org/beautiful-web-type/) de typographies réussies avec Google fonts. Analysez-les.*
+
+*Exercice: mettre en forme la typographie d'un blog post et des lyrics d'un morceau de hip-hop*
+
+- font pairing
+  - super families
+  - polices du même designer / fondrie
+  - polices ayant des caractéristiques communes
 
 ### Outils typographiques disponibles
 
@@ -369,12 +397,8 @@ Si vous vous posez des questions, regardez simplment dans quel but ou contexte l
 - espace: interligne, letter spacing, rythme vertical
 
 *Exercice: chercher chacun une composition typographique sur Dribble et expliquer*
+
 *Exercice: utiliser la typographie et Google fonts pour designer les divers éléments d'un blogpost et des paroles d'un track de hip-hop, d'abord dans Figma et puis dans le code*
-
-### Le futur de la typographie sur le web
-
-- variable fonts
-- glyphs et ligatures
 
 ## 4. Media: Images, Icônes, Video et Sons
 
