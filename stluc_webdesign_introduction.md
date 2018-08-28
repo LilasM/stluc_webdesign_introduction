@@ -375,28 +375,25 @@ Un exercice difficile en typographie consiste à trouver plusieurs polices qui v
 - Caractéristiques communes: cherchez des polices qui sont suffisemment différentes que pour êtres distinguées l'une de l'aure facilement mais qui ont des caractéristiques communes (formes des lettres, x-height, etc.) ou qui ont été délopée dans un même contexte ou selon un conceopt similaire.
 - Outils: des outils et services tels que Google Fonts ou Typekit vous proposent des pistes intéressantes pur le font pairing. N'hésitez pas non plus à inspecter des sites que vous appréciez au niveau typographique.
 
-*Exercice: voici [quelques](http://femmebot.github.io/google-type/) [exemples](http://hellohappy.org/beautiful-web-type/) de typographies réussies avec Google fonts. Analysez-les.*
+*Exercice: Voici [quelques](http://femmebot.github.io/google-type/) [exemples](http://hellohappy.org/beautiful-web-type/) de typographies réussies avec Google fonts. Analysez-les.*
 
-*Exercice: mettre en forme la typographie d'un blog post et des lyrics d'un morceau de hip-hop*
+Une fois vos polices choisies, l'étape suivante consiste à mettre en place une échelle typographique et un rythme vertical. Pour ce qui est de l'échelle typographique, vous pouvez-vous appuyer sur "[Modular Scale](https://www.modularscale.com/)" un outil développé par [Tim Brown](http://tbrown.org/). Pour ce qui est du rythme vertical (nous y reviendrons), le plus facile est de prendre un échelle à laquelle vous allez vous tenir pour ce qui est de l'interligne et de tous les espaces verticaux. Les échelles les plus populaires sont les échelles [de cinq](https://guides.area17.com/design-techniques/#baseline-grid), de six, de [huit](https://themefoundation.com/vertical-rhythm-responsive-typography/).
 
-- font pairing
-  - super families
-  - polices du même designer / fondrie
-  - polices ayant des caractéristiques communes
+Personellement, [je ne souscris pas forcément à une grille stricte](http://jasonsantamaria.com/articles/baseline-grids-on-the-web) (baseline grid) difficile à maintenir sur un médium aussi fluide que le web mais, par contre, je suis attentif à avoir un rythme vertical aussi cohérent que possible en essayant que tous les espacments verticaux ainsi que mes hauteurs de lignes soient des multiples de mon échelle de base.
 
-### Outils typographiques disponibles
+Un élément important dans vos compositions typographiques est de faire varier les caractéristiques de vos éléments pour créer du contraste, des tensions et des similitudes. Vous avez pour ce faire beaucoup d'outils à votre disposition:
 
-- familles: serifs, sans-serifs, display, etc.
-- graisses: black, bold, medium, etc.
-- taille: pixels, rem, em, etc.
-- casse: uppercase, lowercase, etc.
-- styles: normal, italique
+- familles (`font-family`): serifs, sans-serifs, display, etc.
+- graisses (`font-weight`): black, bold, medium, etc.
+- taille (`font-size`): pixels, rem, em, etc.
+- casse (`text-transform`): uppercase, lowercase, etc.
+- styles (`font-style`): normal, italique
 - ornements: glyphs, ligatures, etc.
-- spacing: line spacing, letter spacing
-- couleurs: noir, rouge, grid, etc.
-- espace: interligne, letter spacing, rythme vertical
+- couleurs (`color`): noir, rouge, gris, etc.
+- alignement (`text-align`): left, right, center, justify
+- espace (`margin`, `padding`, `line-height`, `letter-spacing`): margins, paddings, interligne, letter spacing
 
-*Exercice: chercher chacun une composition typographique sur Dribble et expliquer*
+*Exercice: chercher chacun une composition typographique sur Dribble et expliquer quels sont les outils utilisés*
 
 *Exercice: utiliser la typographie et Google fonts pour designer les divers éléments d'un blogpost et des paroles d'un track de hip-hop, d'abord dans Figma et puis dans le code*
 
