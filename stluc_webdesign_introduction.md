@@ -84,7 +84,9 @@ ou
 ```
 
 *Exercice: créer un premier fichier CSS et le lier au document HTML*
+
 *Exercice: sélécteurs de type et de classe comme sélecteurs les plus courants*
+
 *Exercice: expérimenter avec cascade, spécificité et poids*
 
 Si le sujet vous intéresse, [Mozilla Developer Network (MDN) possède un très bon guide en français](https://developer.mozilla.org/fr/docs/Web/CSS) qui vous permettra de débuter avec CSS.
@@ -399,19 +401,207 @@ Un élément important dans vos compositions typographiques est de faire varier 
 
 ## 4. Media: Images, Icônes, Video et Sons
 
+Outre le texte, images, illustrations, icônes et autres média plus interactifs tels que les sons ou les videos font aujourd'hui partie intégrante d'une experience web. Ces media sont des fichiers externes appellés par les fichiers HTML, CSS ou JS.
+
+*Exercice: voir les assets dans une page web via l'onglet Network des developer tools*
+
 ### Icônes
 
-- SVG est le standard
-- Avantages de SVG: styling avec CSS et animations
+Après être passé par diverses transitions (images, icon fonts, etc.) les icones utilisées aujourd'hui sont dans un format vectoriel appellé SVG (Scalable Vector Graphics).
+
+Les fichiers SVG sont des fichiers textes qui ressemblent à du HTML et peuvent être liés comme une image et se comporter comme telle ou bien être intégrés au document, ce qui offre les avantages d'être manipulable directment par JS ou CSS, ce qui permet de leur appliquer des transitions ou des animations.
+
+Généralement, ces fichiers vectoriel sont exportés à partir de Figma, Sketch ou Illustrator et optimisés. Ils sont ensuite intégrés aux pages / vues.
+
+*Exercice: exemple de fichier SVG*
+
+*Exercice: faire une transition avec une icone dans un lien*
 
 ### Images et illustrations
 
-- Images de contenus
-  - Images fluides (CSS)
-  - Images responsives (performance)
-- Images de background
-- Filtres CSS
-- Filtres et masques SVG
+Images ou illustrations sur le web peuvent être soit des contenus (chargées depuis la page HTML) soit décoratives (chargées depuis CSS ou JS). Dans tous les cas, ce sont des assets lourds à charger, il faut donc les optimiser au mieux, en terme de format (choisir le format le moins lourd en regard de la nature de l'image) comme en terme de poids (optimisation).
+
+*Exercice: comparer fichier optimisés et non-optimisés*
+
+#### Images de contenus (HTML)
+
+Les imgages de contenus peuvent être dans divers formats comme vu plus haut. Les images comme éléments de contenus peuvent être fluides (layout) mais également responsives (performance) pour charger un fichier différent suivants les résolutions ou les tailles d'écran.
+
+Pour rendre une image fluide au niveau du layout, il suffit de spécifier que sa largeur maximum est 100% de son container parent. Il faut pour cela que ses dimensions soient plus importantes que la largeur maximale de son parent.
+
+```css
+/* image fluide */
+.o-fluidimage {
+  max-width: 100%;
+  vertical-align: middle;
+}
+```
+
+Si vous souhaitez des hauteur et largeurs fixes mais sans distordre l'image, vous pouver utiliser la propriété `object-fit` comme suit:
+
+```css
+/* image fluide */
+.o-fitimage {
+  width: 100%;
+  height: 100%:
+  object-fit: cover;
+}
+```
+
+Si CSS peut règler les choses sur le plan de la lise en page, c'est contre prodcutif de charger une grande image si la page ou vue est affichée sur un mobile. Grâces aux [images responsives](https://www.smashingmagazine.com/2014/05/responsive-images-done-right-guide-picture-srcset/) et à `srcset`, `sizes`] et `<picture>`, le bavigateur fait une grande partie du travail pour vous.
+
+Uitliser `srcset` et `sizes` si vous souhaiter servir une image identique mais à des tailles différentes suivant la résolution et la taille d'écran.
+
+```html
+/* image fluide */
+<img src="img/myimage-small.jpg"
+     srcset="img/myimage-small.jpg 500w,
+             img/myimage-medium.jpg 1000w,
+             img/myimage-large.jpg 1500w"
+     sizes="(min-width: 1200px) 400px,
+            (min-width: 760px) 33vw,
+            100vw"
+     alt="alternative text">
+```
+
+Si vous souhaiter charger une iamge différente (cadrage, orientation, etc) suivant les tailles d'écran, il vous faudra utiliser l'élement `<picture>`.
+
+```html
+<picture>
+   <source media="(min-width: 750px)"
+           srcset="img/bear-landscape-small.jpg 500w,
+                   img/bear-landscape-medium.jpg 1000w,
+                   img/bear-landscape-large.jpg 1500w"
+           sizes="(min-width: 1200px) 400px,
+                  33vw">
+   <img src="bear-portrait-small.jpg" alt="A fluffy bear">
+</picture>
+```
+
+*Exercice: responsive image et Network panel dans les outils de dévelopement*
+
+### Images de background
+
+Les images sont également utilisées comme élements de background des divers éléments (boites) qui composent une page ou une vue. Ces images de background peuvent avoir différentes caractéristiques définies par CSS (répétées ou pas, positionnées, superposées, mises à l'échelle, etc.), ce qui en fait des composants importants de n'importe quel design.
+
+```css
+/* texture répétée */
+.c-header {
+  background: #FCF8F8 url(../img/bkg-paper-texture.jpg) 0 0 repeat;
+}
+```
+
+```css
+/* image de background simple */
+.c-header {
+  background-color: #000000;
+  background-image: url(../img/bkg-header.jpg);
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+```
+
+```css
+/* backgrounds multiples et gradient */
+.c-header {
+  background-color: #000000;
+  background-image: linear-gradient(to left, rgba(80,227,194,0.4), rgba(80,227,194,0.4)),
+                    url(../img/blackandwhite.jpg);
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+```
+
+*Exercice: réaliser une banner avec des images de background dans Figma et en code*
+
+### Effets: filtres et masques
+
+Les dégradés, les filtres, les masques et les blend modes sont également très utilisés pour ajouter des effets aux designs web.
+
+Commençons par [les dégradés](https://developer.mozilla.org/fr/docs/Web/CSS/Utilisation_de_d%C3%A9grad%C3%A9s_CSS) qui peuvent être créés très silmplement en CSS, qu'ils soient radiaux ou linéaires.
+
+```css
+/* linear gradient */
+.linear-gradient {
+  background: linear-gradient(to bottom, #e66465 15%, #9198e5 80%);
+}
+```
+
+CSS permet également d'utiliser [des filtres](https://css-tricks.com/almanac/properties/f/filter/) qui peuvent être facilement appliqués aux images comme vous le feriez dans photoshop. Voici deux exemples.
+
+```css
+/* grayscale filter */
+.o-filter-grayscale {
+  filter: grayscale(1);
+}
+```
+
+```css
+/* grayscale filter */
+.o-filter-blur {
+  filter: blur(2px);
+}
+```
+
+Les proprités `background-blend-mode` et `mix-blend-mode` permettent de modifier vos images de façon importante, comme vous le feriez avec des calques dans une application graphique. `background-blend-mode` se charge faire un blend mode entre deux backgrounds, tandis que `mix-blend-mode` est utilisé pour gérer un blend mode entre un élement et un autre.
+
+```css
+/* mix blend mode */
+.o-blended-red {
+  display: inline-block;
+  background-color: red;
+}
+
+.o-blended-red > img {
+  filter: grayscale(1);
+  mix-blend-mode: multiply;
+  vertical-align: middle;
+}
+```
+
+Clipping et masking puvent également aider à apporter un peu de variété à vos images. Ces deux principes se ressemblent en ce qu'ils servent tous les deux à cacher certaines parties d'un élement. Le support au niveau des navigateurs n'est pas identique mais [voici une page de test par Yoksel](https://codepen.io/yoksel/full/fsdbu/) pour vérifier par vous mêmes.
+
+- masques: sont des images. Avec `mask-mode: luminance;` les parties noires du masque sont cachés, les parties blanches sont visibles. Avec `mask-mode: alpha;` les parties opaques du masque sont visibles et les parties transparentes cachées.
+- clips: sont des formes. ce qui est à l'intérieur de la forme est visible
+
+```css
+/* appliqué à une <img> */
+.masked {
+  mask-image: url(../img/masks-scribbles.svg);
+  -webkit-mask-image: url(../img/masks-scribbles.svg);
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+
+}
+```
+
+```css
+/* appliqué à une <img> (ne fontionne qu'avec un svg interne pour Safari, Chrome et Opera) */
+.clipped-svg {
+  clip-path: url(../img/clip.svg#myClip);
+  -webkit-clip-path: url(../img/clip.svg#myClip);
+}
+```
+
+```css
+/* appliqué à une <img> */
+.clipped-polygon {
+  clip-path: polygon(20% 0%, 0% 20%, 30% 50%, 0% 80%, 20% 100%, 50% 70%, 80% 100%, 100% 80%, 70% 50%, 100% 20%, 80% 0%, 50% 30%);
+  -webkit-clip-path: polygon(20% 0%, 0% 20%, 30% 50%, 0% 80%, 20% 100%, 50% 70%, 80% 100%, 100% 80%, 70% 50%, 100% 20%, 80% 0%, 50% 30%);
+}
+```
+
+```css
+/* appliqué à une <img> */
+.c-gradient-text {
+  background-image: linear-gradient(to right, #e03d52, #ffb25b);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+```
 
 ### Videos
 
