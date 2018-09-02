@@ -448,7 +448,7 @@ Si vous souhaitez des hauteur et largeurs fixes mais sans distordre l'image, vou
 }
 ```
 
-Si CSS peut règler les choses sur le plan de la lise en page, c'est contre prodcutif de charger une grande image si la page ou vue est affichée sur un mobile. Grâces aux [images responsives](https://www.smashingmagazine.com/2014/05/responsive-images-done-right-guide-picture-srcset/) et à `srcset`, `sizes`] et `<picture>`, le bavigateur fait une grande partie du travail pour vous.
+Si CSS peut règler les choses sur le plan de la mise en page, c'est contre prodcutif de charger une grande image si la page ou vue est affichée sur un petit écran comme celui d'un smartphone. Grâces aux [images responsives](https://www.smashingmagazine.com/2014/05/responsive-images-done-right-guide-picture-srcset/) et à `srcset`, `sizes`] et `<picture>`, le bavigateur fait une grande partie du travail pour vous.
 
 Uitliser `srcset` et `sizes` si vous souhaiter servir une image identique mais à des tailles différentes suivant la résolution et la taille d'écran.
 
@@ -593,6 +593,8 @@ Clipping et masking puvent également aider à apporter un peu de variété à v
 }
 ```
 
+[Clippy de Bennett Feely](https://bennettfeely.com/clippy/) est un petit outil qui vous permettra de créer facilement des clip paths CSS.
+
 ```css
 /* appliqué à une <img> */
 .c-gradient-text {
@@ -603,32 +605,468 @@ Clipping et masking puvent également aider à apporter un peu de variété à v
 }
 ```
 
+Les SVG et les polygones étant animables, ainsi que les images utilisées comme background, il est possible de réaliser des masques animés en CSS ou en JS.
+
 ### Videos
 
-- Videos HTML5
-- Services: Youtube et Vimeo
-- Videos fluides
-- API video
+Nous avons vu comment intégrer des videos dans vos documents HTML5. Ces videos peuvent être des éléments de contenu mais peuvent également être [utilisées de façon créative](https://www.nurturedigital.com/) [comme éléments de layout](https://www.kikk.be/2017/) sous forme de petites boucles simples. Les vidéos HTML5 offrent l'avantage d'être bien plus contrôlables via des attributs et une API video scriptable en JavaScript.
+
+Par contre, les services tels que Youtube et Vimeo encodent et en servent automatiquement les videos en différentes résolutions et formats suivant le navigateur et la machine utilisées. Ils utilisent également des CDN qui améliorent encore les performances en faisant en corte que leserveur qui vous transmet la vidéo se trouve géographiquement le plus près possible de vous.
+
+Les videos HTML5 comme les videos servies via une `<iframe>` par des services tels que Youtube et Viemo peuvent facilement être rendues fluides et s'adapter à des layout responsive.
+
+Pour les videos HTML5, la technique est la même que pour les images.
+
+```css
+.o-fluidvideo {
+  max-width: 100%;
+  vertical-align: middle;
+}
+```
+
+Pour les videos `<iframe>` il vous faut un élément autour.
+
+```css
+.o-fluidiframe {
+  position: relative;
+  margin: 0;
+  padding: 56.25% 0 0;
+  background-color: black;
+}
+
+.o-fluidiframe > iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+```
+
+*Exercice: expériementer avec des videos*
 
 ## 5. Layout: Grilles et outils CSS
 
-- Grilles fluides simples (10, 12, etc)
-- Grilles fluides proportionnelles (golden ratio)
-- Flexbox
-- Grid Layout
-- Responsive design et flexbox
-- Responsive design et CSS Grid
+En design, les grilles sont un outil essentiel. Elles vous permettent de structurer vos contenus et de créer des mises en page complexes et structurées dont les élements sont connectés les uns au autres par une structure sous-jascente.
+
+  > Nothing could be more useful to reach our intention than the Grid. The grid represents the basic structure of our graphic design, it helps to organize the content, it provides consistency, it gives an orderly look and it projects a level of intellectual elegance that we like to express.
+
+  > Massimo Vignelli. The Vignelli Canon
+
+### Rythme horizontal et colonnes
+
+En venant du print et de ses canevas fixes, la question se pose naturellement, comment créer une grille alors que le canevas global change constamment?
+
+La réponse est la même que pour le reste: vos grilles doivent être fluides. La technique la plus utilisée est de garder des gutters fixes, tandis que la largeur et le nombre de colonnes change. Là où un design sur petits écrans utilisera une grille de 2 ou 3 colonnes maximum, un design sur un grand écran peut utiliser 8, 10, 12 ou 16 colonnes par exemple.
+
+*Exercice: reconstruire la grille du [New York Times](nytimes.com)*
+
+*Exercice: reconstruire la grille de [Steele Brand Co](https://dribbble.com/shots/2899485-Steele-Brand-Co/attachments/600278)*
+
+Il existe deux grandes méthodes pour designer ces grilles:
+
+- Grilles content out: grilles designées à partir des contenus et des contraintes du projet (publicités, unités typographiques, longueur de lignes, etc.)
+- Grilles canvas in: partir de vos différents breakpoints et designer plusieurs grilles.
+
+Ces grilles peuvent être de différents types
+
+- Grilles symétriques: toutes les colonnes sont de même taille. Vous avez la possibilité de combiner deux grilles pour plus de variété (une grille de 10 et une grille de 12 par exemple)
+- Grilles asymétriques: certaines colonnes sont de différentes tailles, à nouveau en se basant sur les contraintes du projet ou certaines éléments (menu latéral, compound grids)
+
+Les grilles les plus courantes sur le web sont des grilles symétriques, souvent de 12 colonnes car 12 offre l'avantage d'être divisible par 2, 3 ou 4.
+
+Si un nombre de colonnes pair comme 8, 10, 12 ou 18 apporte un grand équilibre et une grade symétrie, ce genre de grilles peut parfois être ennuyeux. Les grilles ayant un nombre de colonnes impair 5, 7, 9 sont légèrement plus difficile à maîtriser mais apportent un dynamisme intéressant.
+
+En parlant de dynamisme, n'oubliez pas que vous pouvez avoir des grilles sans gutter ou encore laisser des colonnes vides dans vos designs.
+
+- Grilles fluides simples (5, 7, 10, 12, etc)
+- Grilles fluides proportionnelles
+
+*Exercice: design d'une grille responsive symétrique pour trois tailles d'écran*
+
+*Exercice: design d'une grille responsive asymétrique pour trois tailles d'écran*
+
+### Rythme vertical et grilles typographiques
+
+Le rythme vertical d'une page est important. En print, cela se traduit souvent par une baseline grid ou grille typograohique stricte. Sur le web, une telle grille stricte est peu pratique pour les raisons suivantes:
+
+- ces grilles sont techniquement fragiles et difficile à implémenter avec succès
+- certains éléments ne respectent pas ces grilles et ont parfoi des ratio standards (images, videos, etc)
+- ces grilles sont faites à l'origine pour les grandes pages de spread dans les magazines, etc. Il n'y a jamais autant d'espace sur le web.
+
+Plutôt que de faire tout correspondre à une baseline grid stricte, l'idée est plutôt de créer un rythme vertical en ayant une échelle stricte pour tous les espacements verticaux. Certains adoptent une grille de 10, d'autres une grille de 8 ou de 6. Encore une fois, tout dépend de vos contraintes et de votre typographie.
+
+*Exercice: rythme vertical et typographie pour trois cartes côte à côte*
+
+### Outils CSS au niveau du layout
+
+Au niveau du code, disposer de vrais outils de layout sur le web est assez récent. Après avoir été obligés d'employer diverses méthodes plus ou moins orthodoxes (tableaux et gif transparents, floats, inline-block, etc.) CSS dispose désormais de deux outils de layout dignes de ce nom: Flexbox et Grid.
+
+- **Flexbox**: gère une seule dimension (verticale ou horizontale), fonctionne à partir des caractéristiques des contenus pour gérer leurs répartition dans un container.
+- **Grid**: gère deux dimensions (verticale et horizontale), fonctionne à partir des caractéristiques d'une grille dans laquelle les contenus sont placés.
+
+Ces deux outils de layout font en outre appel au [module de Box Alignment](https://www.w3.org/TR/css-align-3/). Vous retrouverez donc des propriétés d'alignement communes à Grid et à Flexbox.
+
+#### Flexbox
+
+Flexbox est appliqué gâce à la propriété display. Une fois la propriété `display: flex;` ou `display: inline-flex;` déclarée sur un élement, celui-ci devient un **flex-container** est ses enfants directs des **flex-items**. Comme dit plus haut, Flexbox permet de gérer les choses dans une dimension principale (verticale ou horizontale). C'est ce que l'on appelle le "main-axis" qui est spécifié via la propriété `flex-direction` et permet de gérer l'alignement principal des flex-items. Une fois le "main-axis" précisé, un "cross axis" perpendiculaire permet de gérer des propriétés d'alignement plus secondaires des flex-items.
+
+Voici les propriétés les plus importantes au niveau du flex-container. Ces propriétés ont des valeurs par défaut mais, lorsque vous commencez, il est conseillé de les spécifier toutes explicitement.
+
+- `flex-direction: [row | row-reverse | column | column-reverse];`: établi la direction du "main axis" (et donc aussi celle du "cross axis"). La valeur `row` spécifie un axe horizontal gauche droite pour les documents en mode `ltr` et un axe horiontal droite gauche pour les documents en mode `rtl`
+- `justify-content: [flex-start | flex-end | center | space-between | space-around | space-evenly];`: gestion de l'alignement des flex-items et de la distribution de l'espace sur le main axis. `flex-start` et `flex-end` dépendent du mode de document `ltr` ou `rtl`.
+- `align-items: [flex-start | flex-end | center | baseline | stretch];` gestion de l'alignement des flex-items et de la distribution de l'espace sur le cross axis
+- `flex-wrap: [wrap | nowrap];`: les flex-items sont autorisés à passer sur une autre ligne ou pas.
+
+Voici les propriétés les plus importantes au niveau des flex-items. Ces propriétés ont des valeurs par défaut. Lorsque vous commencez, il est conseillé de spécifier `flex` et ses trois valeurs explicitement.
+
+- `flex-basis` détermine les dimensions d'un flex-item avant que l'espace vide dans le flex-container soit distribué. Peut être soit une valeur (px, rem, em, %, etc.) soit `auto` (dans ce cas la valeur spécifiée pour `width` ou `height` est prise en compte). La valeur par défaut est `auto`.
+- `flex-grow`: détermine si un flex-item peut grandir au delà de ses dimensions de base si nécessaire. A comme valeur `0` ou un nombre entier qui représente la proportion avec laquelle les flex-items vont grandir si ils sont plus petits que leur flex-container après l'application de `flex-basis`. Plus le nombre entier est grand, plus la proprotion est importante. La valeur par défaut est `0`.
+- `flex-shrink`: détermine si un flex-item peur rétrécir en deça de ses dimensions de base si nécessaire. A comme valeur `0` ou un nombre entier positif qui représente la proportion avec laquelle les flex-items vont rétrécir si ils sont plus grands que leur flex-container après l'application de `flex-basis`. Plus le nombre entier est grand, plus la proportion est importante. La veleur par défaut est `1`.
+- `order [integer]`: détermine l'ordre d'affichage des flex-items dans un flex-container indépendemment de leur ordre dans le code source. La valeur est spécifiée sous la forme d'un nombre entier positif ou négatif.
+- `flex: [flex-grow | flex-shrink | flex-basis]`: propriété courte permettant de gérer à la fois `flex-grow`, `flex-shrink` et `flex-basis`. Il vaut mieux utiliser cette propriété courte plutôt que les propriétés longues pour des raisons de compatibilté entre navigateurs.
+
+La propriété `margin` avec une valeur de `auto` est intéressante pour les `flex-items`, elle permet d'allouer tout l'espace disponible dans le flex-container à cette marge et ainsi de "pousser" un ou plusieurs flex-items vers l'extrémité opposée du main axis. L'aricle "[Flexbox’s Best-Kept Secret](https://hackernoon.com/flexbox-s-best-kept-secret-bd3d892826b6)" explique le phénomène en détail.
+
+CSS tricks possède un bon article "[A complete guide to flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)" résumant l'ensemble des propriétés et valeurs liées à Flexbox. [Flexbox Froggy](http://flexboxfroggy.com/) adopte une approche plus ludique.
+
+**Exemple: interface de navigation horizontale (expérimenter avec les différentes propriétés et valeurs)**
+
+```html
+<ul class="mainnav">
+  <li class="mainnav__item"><a class="mainnav__link" href="#">Home</a></li>
+  <li class="mainnav__item"><a class="mainnav__link" href="#">About</a></li>
+  <li class="mainnav__item"><a class="mainnav__link" href="#">Work</a></li>
+  <li class="mainnav__item  mainnav__item--contact"><a class="mainnav__link" href="#">Contact</a></li>
+</ul>
+```
+
+```css
+.mainnav
+{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: nowrap;
+
+  background-color: #ccc;
+}
+
+.mainnav__item
+{
+  flex: 0 1 auto;
+}
+
+.mainnav__item--contact
+{
+  margin-left: auto;
+}
+
+.mainnav__link
+{
+  display: block;
+  padding: 1rem;
+  background-color: #dfdfdf;
+}
+
+.mainnav__link:hover
+{
+  background-color: #eee;
+}
+```
+
+#### Grid
+
+CSS grid permet de créer des grilles en deux dimensions et de positionner des élements à l'aide de ces grilles. CSS grid est appliqué à l'aide de la proprité display. Une fois `display: grid;` ou `display: inline-grid;` appliqué à un élément, celui-ci devient un **grid-container** et ses enfants directs des **grid-items**.
+
+Grid est une spécification relativement complexe, nous allons ici en voir les propriétés principales. Pour un aperçu plus complet, je ne peux que vous recommander "[Grid by example](https://gridbyexample.com/examples/)" par Rachel Andrew et [un guide très bien fait disponible en français sur Mozilla Developer Network](https://developer.mozilla.org/fr/docs/Web/CSS/CSS_Grid_Layout/Les_concepts_de_base). Voir également "[A Complete Guide to Grid](https://css-tricks.com/snippets/css/complete-guide-grid/)" sur CSS Tricks pomur un bon résumé.
+
+Voici les propriétés principales au niveau du **grid-container**:
+
+- `grid-template-columns`: défini les dimensions des colonnes de la grille. Peut être une valeur (fr,%,px,rem,em, etc.) ou `auto`. Si ces valeurs sont répétées il est intéressant d'utiliser la notation `repeat`. La valeur `minmax([valeur-min], [valeur-max])` est également très utile pour spécifier une valeur minimale et maximale pour les dimensions des colonnes. Lorsque `minmax` est utilisé avec `repeat` comme dans `grid-template-columns: repeat(3, 1fr);`, les valeurs `auto-fill` ou `auto-fit` peuvent être utilisées en lieu et place du nombre de répétitions souhaitées pour laisser le browser faire les calculs.
+- `grid-template-rows`: défini les dimensions des rangées de la grille. Peut être une valeur (fr,%,px,rem,em, etc.) ou `auto`. Si ces valeurs sont répétées il est intéressant d'utiliser la notation `repeat`. La valeur `minmax([valeur-min], [valeur-max])` est également très utile pour spécifier une valeur minimale et maximale pour les dimensions des colonnes. Lorsque `minmax` est utilisé avec `repeat`, il est également possible d'utiliser `auto-fill` ou `auto-fit`.
+- `justify-content: [start | end | center | stretch (default)]`: permet d'aligner les grid-items par rapport à l'axe des rangées.
+- `align-items: [start | end | center | stretch (default)]`: permet d'aligner les grid-items par rapport à l'axe des colonnes.
+- `grid-column-gap`, `grid-row-gap`, `grid-gap`: permettent de spécifier les espaces entre les colonnes et les rangées de la grille ou les deux à la fois. Peut être une valeur (%,px,rem,em, etc.).
+- `grid-templates-areas`: permet de définir des zones de grilles nommées de façon visuelle. les valeurs sont soit des chînes de caractères, soit un "." qui permet de laisser la zone visée vide de tout contenu.
+
+Voici les propriétés principales au niveau des **grid-items**:
+
+- `grid-column-start`, `grid-column-end`, `grid-column`, `grid-row-start`, `grid-row-end`, `grid-row`: permettent de placer les grid-items dans les colonnes de la grilles. Peuvent prendre comme valeur des nombres correspondant à des grid lines ou des noms de grid lines nommées. Le mot-clé `span` peut être utilisé avec un nombre ou un nom de grid line pour faire en sorte que des grid-items occupent plusieurs "cases" de la grille. Une valeur de `auto` est la valeur par défaut et correspond à un placement automatique des grid-items. `grid-column` et `grid-row` sont des propriétés courtes permattant de gérer les deux à la fois avec les notations `column-start / column-end` ou `row-start / row-end`
+- `grid-area`: permet de placer des grid-items dans des zones de la grille nommées à l'aide de `grid-template-areas`. Cette propriété peut également servir de notation ultra condensée pour spécifier `row-start / column-start / row-end / column-end`
+- `justify-self`: permet d'aligner les grid-item le long de l'axe des rangées.
+- `align-self`: permet d'aligner les grid-item le long de l'axe des colonnes.
+
+##### Placement explicite et implicite des élements dans la grille
+
+Si le placement des éléments dans la grille n'est pas spécifié explicitement avec `grid-column`, `grid-row`, `grid-area`, etc. les éléments vont simplement se placer dans les cellules de la grille dans l'odre spécifié par le code source du document.
+
+La valeur `dense` de la propriété `grid-auto-flow` oblige le navigateur à optimiser le placement automatique / implicite des éléments pour remplir au mieux toutes les cellules de la grille. Cela peut causer une modification de l'ordre d'affichage des éléments par rapport au code source du document.
+
+##### Grilles explicites et implicites
+
+Des notions importantes à comprendre sont celles de grilles explicites et implicites. Lorsque vous définissez une grille à l'aide de `grid-template-columns` et `grid-template-rows`, si le nombre d'éléments qui doivent être placés dans la grille est plus important que le nombre de cellules définies dans la grille, de nouvelles cellules vont automatiquement être créés.
+
+Par défaut, elles seront créées comme des rangées, avec une dimension de `auto`. Vous pouvez spécifier les dimensions des colonnes ou des rangées créées implicitement à l'aide des propriétés `grid-auto-rows` et `grid-auto-columns` qui sont l'équivalent pour les grilles implicites des propriétés `grid-template-columns` et `grid-template-rows` pour les grilles explicites.
+
+Vous pouvez également utiliser `grid-auto-flow: [row (default) | columns | dense | row dense | column dense]`. Si vous spécifiez une valeur de `columns`, des colonnes implicites seront créées plutôt que des rangées.  Le mot-clé `dense` oblige le navigateur à optimiser le placement automatique / implicite des éléments pour remplir au mieux toutes les cellules de la grille. Cela peut modifier l'ordre dans lequel les éléments sont affichés par rapport à leur ordre dans le code source du document.
+
+**Exemple: grilles fluide simple - expérimenter avec les différentes propriétés et valeurs**
+
+```html
+<div class="grid">
+  <div class="grid__item">grid item</div>
+  <div class="grid__item">grid item</div>
+  <div class="grid__item">grid item</div>
+  <div class="grid__item">grid item</div>
+  <div class="grid__item">grid item</div>
+  <div class="grid__item">grid item</div>
+  <div class="grid__item">grid item</div>
+</div>
+```
+
+```css
+.grid
+{
+  display: grid;
+  /* grid-template columns: 1fr 1fr 1fr 1fr; */
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto;
+  grid-gap: 20px;
+}
+
+.grid__item
+{
+  background-color: teal;
+}
+```
+
+**Exemple: grille fluide responsive avec minmax et auto-fit - expériementer avec les différentes propriétés et valeurs**
+
+```html
+<div class="grid">
+  <div class="grid__item">grid item</div>
+  <div class="grid__item">grid item</div>
+  <div class="grid__item">grid item</div>
+  <div class="grid__item">grid item</div>
+  <div class="grid__item">grid item</div>
+  <div class="grid__item">grid item</div>
+  <div class="grid__item">grid item</div>
+</div>
+```
+
+```css
+.grid
+{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-rows: auto;
+  grid-gap: 20px;
+}
+
+.grid__item
+{
+  background-color: teal;
+}
+```
+
+**Exemple: grille responsive avec des zones nommées à l'aide de template areas**
+
+```html
+<div class="page">
+  <header class="pageheader">header</header>
+  <div class="content-secondary">secondary content</div>
+  <main class="content-main">main content</main>
+  <footer class="pagefooter">footer</footer>
+</div>
+```
+
+```css
+.page
+{
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 0 20px;
+  max-width: 1140px;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: "header"
+                       "content"
+                       "sidebar"
+                       "footer";
+}
+
+@media all and (min-width: 760px)
+{
+  .page
+  {
+    grid-template-columns: 300px 20px 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: "header header header"
+                         "sidebar . content"
+                         "footer footer footer";
+  }
+}
+
+.pageheader
+{
+  grid-area: header;
+  background-color: silver;
+}
+
+.content-secondary
+{
+  grid-area: sidebar;
+  background-color: teal;
+}
+
+.content-main
+{
+  grid-area: content;
+  background-color: olive;
+}
+
+.pagefooter
+{
+  grid-area: footer;
+  background-color: purple;
+}
+```
+
+**Exemple: grille responsive avec elements placés automatiquement et un élément placé explicitement (avec span)**
+
+```html
+<ul class="grid">
+  <li class="grid__item"><p>grid item</p></li>
+  <li class="grid__item"><p>grid item</p></li>
+  <li class="grid__item  grid__item--highlight"><p>grid item</p></li>
+  <li class="grid__item"><p>grid item</p></li>
+  <li class="grid__item"><p>grid item</p></li>
+  <li class="grid__item"><p>grid item</p></li>
+  <li class="grid__item"><p>grid item</p></li>
+  <li class="grid__item"><p>grid item</p></li>
+</ul>
+```
+
+```css
+.grid
+{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-rows: auto;
+  grid-gap: 2rem;
+}
+
+.grid__item
+{
+  background-color: teal;
+}
+
+.grid__item--highlight
+{
+  background-color: red;
+  grid-row: 1 / 2;
+  grid-column: 1 / 2;
+}
+
+@media all and (min-width: 440px)
+{
+  .grid__item--highlight
+  {
+    grid-row: 1 / 3;
+    grid-column: 1 / 3;
+  }
+}
+```
 
 ## 6. Transitions et Animations
 
+Pour ce
+
 - Transitions CSS
 - Animations CSS
+- Déclancher au scroll
 - Animations Javascript (GSAP / Greensock)
-- Animations au scroll
 - Data visualisation
 
 ## 7. Design web: document de delivery
 
-- Style tiles
-- Styles guides
-- Components library
+Afin de présenter les designs web dans tous leurs aspects, le plus efficace est de le faire à l’aide de prototypes interactifs, plutôt que d’utiliser des documents et méthodes plus statiques qui posent problème à de nombreux niveaux.
+
+### Problèmes des documents statiques / uniques
+
+Classiquement, on présente des designs à l’aide de wireframes statiques qui se transforment finalement en chartes graphiques statiques détaillées réalisées sur Sketch , Figma ou Photoshop. Cette manière de travailler provient du print mais n’est pas adaptée au design web pour diverses raisons.
+
+#### Non prise en compte des spécificités du medium
+
+Ces documents ne sont pas à même de matérialiser efficacement les spécificités du medium Internet que sont l’interactivité (survol des boutons, menus déroulant, accordéons, slideshows, animations, etc.), l’adaptation aux diverses tailles d’écran et résolutions (desktops, tablettes, mobiles, écrans haute résolution, etc.) et l'adaptation aux capacités du navigateur ou du terminal utilisé.
+
+#### Représentation irréaliste du produit fini
+
+De tels documents donnent une fausse image du produit fini. On habitue ainsi le client à voir une version “irréaliste” de son futur site.
+
+La résolution des documents imprimés est plus élevée qu’un affichage sur écran, les pages sont présentées dans leur entièreté alors que -dans un navigateur- seule une petite portion en sera visible à la fois, les polices n’ont pas du tout le même rendu à l’écran.
+
+Enfin, ces documents donnent l’impression que le site aura toujours le même rendu. Or, selon les navigateurs utilisés, un site n’a pas toujours la même apparence ni les mêmes comportements.
+
+#### Dissociation des aspects de design et des aspects techniques
+
+L’utilisation de documents statiques favorise une déconnexion entre le design et le code, entre l’expérience utilisateur et les moyens techniques permettant de la réaliser. Cette fracture cause de nombreuses pertes de temps, de malentendus et de frustrations entre développeurs et designers.
+
+### L’avènement des documents dynamiques
+
+Pour ces diverses raisons et depuis un certain temps déjà, les web designers travaillent le plus possible dans l’environnement natif du web: le browser. Le but est d’arriver à un prototype fonctionnel, réalisé en HTML / CSS / JS. Pour arriver à définir divers aspects de ce prototype au niveau du design, plusieurs types de document plus dynamiques peuvent être utilisés.
+
+L’idée est ici de travailler de façon plus rapide et itérative, en utilisant des documents moins lourds à produire, permettant des cycles de feedback plus fréquents et plus rapides et créant de ce fait une dynamique dans laquelle le client / commanditaire se sent plus impliqué.
+
+#### Content prototypes
+
+Pour ce qui est des contenus, de simples "[content prototypes](https://thomasbyttebier.be/blog/the-bold-beauty-of-content-prototypes)" réalisés en HTML brut permettent aux copywriters de travailler, à l'équipe d'avoir une référence mise à jour et au client de valider le copy.
+
+Les avantages sont multiples:
+
+- ces prototypes sont mobile first et permettent de tester la hiérarchie des contenus la data structure des différentes pages / vues et éléments
+- une fois en ligne, ces prototypes peuvent être consultés et modifiés par tous
+- les patterns de navigation et la forme des divers contenus peuvent être testés rapidement
+-
+
+#### Moodboards and elements collages
+
+Plutôt que de fournir au client des “mockups” sur Sketch, Figma ou Photoshop dans lesquels les moindres éléments des pages sont designés, il est plus facile et plus rapide d’explorer diverses pistes graphiques à l’aide de ce que Dan Mall appelle des "[elements collages](http://v3.danielmall.com/articles/rif-element-collages/)".
+
+De tels elements collages ou [moodboards](https://thomasbyttebier.be/blog/mood-boards-in-a-content-first-design-process) peuvent être produits relativement rapidement pour réaliser quelques itérations autour de concepts intéressants et d'éléments centraux du site / de l’application. Présenter les choses sous forme d'une longue page web permet aussi d'utiliser des videos ou un peu de JavaScript pour présenter des concepts plus interactifs ou dynamiques.
+
+Sketch, Figma ou Framer sont encore présents dans le processus, mais la philosophie change.
+
+Il ne s'agit plus de produire des designs finalisés mais de pouvoir rapidement tester et valider des idées pour ensuite pouvoir travailler de façon itérative et collaborative.
+
+### Designers hybrides
+
+> [the design process] is about designing, prototyping and making. When you separate those, I think the final result suffers."
+> Jonathan Ive, March, 2012
+
+Cette phrase de Jonathan Ive pourrait sans problème être appliquée au web d’aujourd’hui, dans lequel le design, la création de prototypes et la réalisation technique sont de plus en plus intimement liés.
+
+#### Les designers web doivent ils coder?
+
+Pas forcément, mais cela aide beaucoup et cela permet de gagner du temps. Au minimum, designers et dévelopeurs doivent collaborer étroitement et avoir une bonne connaissance des modes de travail et défis recontrés par les uns et les autres est primordial.
+
+Le travail des designers web à grandement évolué: nous devons maintenant créer des systèmes modulaires et flexibles et plus des interfaces fixes dans photoshop. Le nombre d’inconnues et d’élements entrant en ligne de compte dans un site Internet ne cesse d’augmenter.
+
+Cela requiert des changements dans les process et workflow utilisés mais aussi une plus grande collaboration et un dialogue plus étroit entre les différents intervenants
+
+> You must also address the very human issue of communication. Earlier and more frequent collaboration among team members and the client must become the rule in your workflow, not the exception. Content, design, and development team members must review and collaborate regularly at every stage in the creation process until the site is live. We can’t ‘throw it over the wall’ anymore— at least, not if we want our sites to be excellent. There are simply too many moving parts now. Go forth and collaborate.
+
+> Drew Clemens - Smashing Magazine
