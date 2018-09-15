@@ -12,13 +12,15 @@ Une fois la connection établie entre le serveur web et vous, les serveurs DNS o
 
 *Exercices: nslookup et traceroute / tracert*
 
-"Aller sur Internet" c'est envoyer, via votre navigateur, une requête vers un serveur web qui va vous renvoyer des fichiers HTML, CSS, JS ainsi que des assets (images, fontes, videos, etc.) que votre navigateur va lire et interpréter pour composer la page que vous voyez et avec laquelle vous pouvez interagir. Il y a donc un client (votre navigateur et la machine sur laquelle il tourne) et un serveur (le serveur web qui vous sert les fichiers) qui peut également être connecté à une base de données.
+"Aller sur Internet" c'est envoyer, via votre navigateur, une requête vers un serveur web qui va vous renvoyer des fichiers HTML, CSS, JS ainsi que des assets (images, fontes, videos, etc.) que votre navigateur va lire et interpréter pour composer la page que vous voyez et avec laquelle vous pouvez interagir.
 
-Nous nous concentrerons essentiellement ici sur les technologies **front-end**, c'est à dire celles qui sont utilisées par votre navigateur. Il s'agit principalement de HTML, CSS, et Javascript. Chacune de ces technologies est suffisamment complexe que pour que certains frameworks ou languages facilitant la vie des développeurs aient été écrits (Sass, Less, Vue, React, Angular, Ember, etc.).
+Il y a donc un client (votre navigateur et la machine sur laquelle il tourne) et un serveur (le serveur web qui vous sert les fichiers) qui peut également être connecté à une base de données.
+
+Nous nous concentrerons essentiellement ici sur les technologies **front-end**, c'est à dire celles qui sont utilisées par votre navigateur. Il s'agit principalement de HTML, CSS, et Javascript. Chacune de ces technologies est suffisamment complexe que pour que certains frameworks ou langages facilitant la vie des développeurs aient été écrits (Sass, Less, Vue, React, Angular, Ember, etc.).
+
+Les frameworks sont en quelque sorte des boites à outils pour les dévelopeurs, qui sont construites sur base de divers languages back-end ou front-end. Si vous voulez une analogie, c'est un peu comme disposer de Lego Technics. Ces frameworks aident les développeurs à construire rapidement des sites ou applications plus complexes.
 
 Le monde du **back-end** est celui de la logique qui se produit côté serveur et qui sert essentiellement à fournir des données au site ou à l'application que vous utilisez. Ces données sont fournies par une base de données ou par des API (Application Programming Interface). Les technologies du back-end sont des langages de programmation comme Ruby, PHP, Python, Go, Node et des frameworks qui y sont liés (Rails, YII, Laravel, Django, etc.).
-
-Les frameworks sont en quelque sorte des boites à outils pour les dévelopeurs, qui sont construites sur base de divers languages back-end ou front-end. Si vous voulez une analogie, c'est un peu comme disposer de Lego Technics. Ces frameworks aident les développeurs à construire des sites ou applications plus complexes.
 
 N'oublions pas non plus l'infrastructure: les bases de données (MySQL, PostGresSQL, MongoDB, etc.), les serveurs web eux-mêmes comme Apache, NginX ou encore UNIX et Linux, qui sont les OS sur lesquels tournent la plupart d'entre eux.
 
@@ -101,7 +103,7 @@ Si le sujet vous intéresse, Mozilla Developer Network (MDN) possède [un très 
 
 ### Javascript: scripting, interactivité et programmation
 
-[Javascript](https://www.w3.org/standards/webdesign/script) est le language de programmation côté client permettant de scripter le navigateur pour créer des interactions complexes et utiliser les API du navigateurs ou des API externes. Au départ un langage de scripting, l'évolution actuelle de Javascript tend de plus en plus vers un langage de programmation à part entière qui peut aujourd'hui également être utilisé côté serveur ([Node](https://nodejs.org/en/)).
+[Javascript](https://www.w3.org/standards/webdesign/script) est le language de programmation côté client permettant de scripter le navigateur pour créer des interactions complexes et utiliser les API du navigateur ou des API externes. Au départ un langage de scripting, l'évolution actuelle de Javascript tend de plus en plus vers un langage de programmation à part entière qui peut aujourd'hui également être utilisé côté serveur ([Node](https://nodejs.org/en/)).
 
 De nombreux sites ou applications ont également porté une grande partie de la logique vers le côté client. C'est particulièrement vrai pour tout ce qui est Single Page Applications (SPA). Ces dernières font usage de frameworks JavaScript (React, Vue, Ember, Angular, etc.) permettant de gérer les différents états (states) d'une application et d'avoir des composants qui y répondent.
 
@@ -111,7 +113,7 @@ window.addEventLister("load", function() {
 });
 ```
 
-*Exercice: inspecter le code d'une page web et montrer les divers types de code*
+*Exercice: inspecter le code d'une page web et afficher les divers types de code*
 
 *Exercice: faire un premier projet web avec un fichier HTML, un fichier CSS, un fichier JS*
 
@@ -129,11 +131,11 @@ Ces fichiers ne sont pas contenus dans le code HTML, CSS ou JavaScript mais sont
 
 Commençons par les images. Sur le web, les formats les plus utilisés sont:
 
-- JPG: utilisé pour les images de type photographique, pas de transparence, lossy
-- GIF: utilisé pour les images avec aplats de couleurs, transparence simple, animations frame par frame, lossy. GIF est un format de moins en moins utilisé depuis l'avènement de PNG et de SVG
-- PNG: utilisé pour les images avec aplats de couleurs, transparence simple et transparence d'alpha, lossy.
-- SVG: format vectoriel, est une sorte de mini-document qui peut être scripté et manipulé par CSS lorsqu'il est intégré au document (inline), lossless.
-- WEBP: format encore en dévelopement mais qui permet d'avoir des fichiers moins lourds et d'utiliser des algorithmes de compression lossless et lossy.
+- JPG: utilisé pour les images de type photographique, pas de transparence, compression avec pertes (lossy)
+- GIF: utilisé pour les images avec aplats de couleurs, transparence simple, animations frame par frame, compression avec pertes (lossy). GIF est un format de moins en moins utilisé depuis l'avènement de PNG et de SVG
+- PNG: utilisé pour les images avec aplats de couleurs, transparence simple et transparence d'alpha, compression avec pertes (lossy).
+- SVG: format vectoriel, est une sorte de mini-document qui peut être scripté et manipulé par CSS lorsqu'il est intégré au document (inline), compression sans pertes (lossless).
+- WEBP: format encore en dévelopement mais qui permet d'avoir des fichiers moins lourds et d'utiliser des algorithmes de compression avec et sans pertes (lossy et lossless).
 
 Une fois ces éléments intégrés à un document HTML, CSS et JavaScript peuvent être utilisés pour en définir les styles graphiques et/ou pour les manipuler.
 
@@ -156,7 +158,7 @@ Voici comment intégrer une image avec une légende.
 
 ### Videos
 
-Tous les navigateurs web ne supportent pas les mêmes formats video. Pour être certain de pouvoir être vue par l'ensemble des navigateurs modernes, votre video doit donc être disponibles en plusieurs formats. Actuellement MP4 et WEBM sont suffisants.
+Tous les navigateurs web ne supportent pas les mêmes formats video. Pour pouvoir être lue par l'ensemble des navigateurs modernes, votre video doit donc être disponibles en plusieurs formats. Actuellement MP4 et WEBM sont suffisants.
 
 Les videos peuvent très facilement être intégrées à vos documents HTML. Une fois ces videos intégrées, CSS et JavaScript peuvent être utilisés pour en définir les styles graphiques et/ou pour les manipuler.
 
@@ -172,7 +174,7 @@ Les videos peuvent très facilement être intégrées à vos documents HTML. Une
 
 ### Fontes
 
-Initialement, il n'était possible que de travailler à l'aide des polices installées sur l'ordinateur client. Toutes les polices n'étant pas disponibles partout, les développeurs utilisaient un "font-stack", une liste de polices spécifiant la police souhaitée ainsi que des alternatives au cas ou cette dernière n'est pas disponible.
+Initialement, il était uniquement possible de travailler à l'aide des polices installées sur l'ordinateur client. Toutes les polices n'étant pas disponibles partout, les développeurs utilisaient un "font-stack", une liste de polices spécifiant la police souhaitée ainsi que des alternatives au cas ou cette dernière n'est pas disponible.
 
 ```css
 body {
@@ -206,13 +208,13 @@ body {
 
 Aujourd'hui, il est possible de charger des fichiers de polices et de demander au navigateur de les utiliser pour le rendu. Les problématiques sont maintenant d'ordre technique (hinting, optimisation) et de licences (les fichiers de polices pouvant être facilement téléchargés, ils sont difficiles à protéger). C'est pour répondre à ces deux problèmes que des services de distribution de polices (Typekit, Google fonts, Fontdeck) ont été créés.
 
-*Exercice: intégrer une police custom à un projet HTML/CSS*
+*Exercice: intégrer une police custom à un projet HTML/CSS avec Font Suirrel et `@font-face` puis avec Google fonts*
 
 ## Design Web: spécificités du medium
 
-Le design print est un domaine qui a déjà derrière lui des centaines d'années d'existence et qui a intégré une série de règles, de canons et de bonnes pratiques qui, pour la plupart, prennent pour base le canevas du projet et les possibilités techniques au niveau de l'impression. Il est en général facile d'avoir une bonne idée du contexte dans lequel le produit va être utilisé et ous sommes façe à un médium qui est statique.
+Le design print est un domaine qui a déjà derrière lui des siècles d'existence et qui a intégré une série de règles, de canons et de bonnes pratiques qui, pour la plupart, prennent pour base le canevas du projet et les possibilités techniques au niveau de l'impression.
 
-Avec le print, nous sommes donc dans un envrionnement de design statique et dont les paramètres sont connus et maîtrisés de bout en bout. Le designer contrôle parfaitement tous les aspects de son projet.
+Avec le print, nous sommes donc dans un envrionnement de design statique et dont les paramètres sont connus et maîtrisés de bout en bout. Le designer contrôle donc parfaitement tous les aspects de son projet.
 
 Il en va tout autrement pour le web et le digital en général, comme l'explique fort bien John Allsopp dans son article "[A Dao of Web Design](https://alistapart.com/article/dao)":
 
@@ -222,9 +224,9 @@ Il en va tout autrement pour le web et le digital en général, comme l'explique
 
 Accepter la flexibilité du medium se traduit par une impossibilité de tout contrôler.
 
-En tant que designer, il nous faut se réconcilier avec les inconnues inhérentes au web et les apprivoiser, les intégrer dans notre travail.
+En tant que designer, nous devons nous réconcilier avec les inconnues inhérentes au web et les apprivoiser, les intégrer dans notre travail.
 
-Depuis les débuts du web, les designers digitaux ont du réinventer leur métier et mettre en place des outils, workflows et stratégies pour aborder un medium qui lie contenus et interactivité dans un contexte fluide où les inconnues sont nombreuses.
+Depuis les débuts du web, les designers digitaux ont du réinventer leur métier et mettre en place des outils, workflows de production et des stratégies pour aborder un medium qui lie contenus et interactivité dans un contexte fluide où les inconnues sont nombreuses.
 
 ### Entre contenus et interactivité
 
@@ -237,27 +239,27 @@ Bref, le design digital est un continuum entre contenus et interactivité. Chaqu
 
 Ces deux aspects sont toujours présents dans un site web et doivent tous deux être pris en compte à divers niveaux:
 
-- **Stratégie**: quels sont les objectifs en termes de transission d'information / d'accomplissement de tâches?
+- **Stratégie**: quels sont les objectifs en termes de transission d'information / d'accomplissement de tâches pour les divers publics ciblés?
 - **Contenus**: quels contenus doivent être mis en place? Quels types de contenus vont au mieux servir les objectifs du site (blogposts, tutoriax, videos, etc.)? Quelles sont les ressources disponibles pour publier et à quelle fréquence?
 - **Interactivité**: quelles interactions avec le site doivent être créées? Comment les rendre visibles et attractives pour les utilisateurs? Quelles ressources sont disponible pour le support et les tests utilisateurs?
 - **Structure**: quelle va être l'architecture d'information? Quelles seront les structures de données des contenus? Quels sont les flux utilisateurs, les diverses étapes dans la réalisation de chaque tâche et comment les structurer pour que chaque étape soit simple et pour le que nombre d'étapes soit le plus bas possible?
-- **Présentation**: comment la présentation va-t-elle soutenir les autres dimensions? La présentation sert-elles les diverses audiences?
+- **Présentation**: comment la présentation va-t-elle soutenir les autres dimensions? La présentation sert-elles les divers publics ciblés?
 
 ### Design for the unknown
 
 #### Première inconnue: le canevas
 
-En print, le format, le support, le canevas du produit fini est connu. Il s’agit d’une affiche de telle dimensions, d’une brochure en format A5 de 20 pages, etc. Il en va tout autrement sur le web où le concept même de canevas sur lequel baser un design disparait devant la diversité des supports sur lesquels les sites et applications doivent fonctionner (tailles, résolutions et orientations d’écrans, etc.).
+En print comme en vidéo, le canevas du produit fini est connu. Il s’agit d’une affiche de telle dimensions, d’une brochure en format A5 de 20 pages, d'un sport publicitaire de 3 minutes pour la télévision, etc. Il en va tout autrement sur le web où le concept même de canevas sur lequel baser un design disparait devant la diversité des supports sur lesquels les sites et applications doivent fonctionner (tailles, résolutions et orientations d’écrans, etc.).
 
 Si nous ne pouvons plus baser nos designs sur le canevas, nous devons alors [partir des contenus](https://markboulton.co.uk/journal/a-richer-canvas) pour designer non plus des pages mais bien des [systèmes de composants flexibles](http://styleguides.io/) pouvant s’agencer de diverses façons pour occuper et s’adapter à un maximum de canevas possibles.
 
-*Exercice: spotify en téléphone, tablette, desktop*
+*Exercice: l'application spotify en téléphone, tablette, desktop*
 
 #### Deuxième inconnue: les capacités du navigateur et du terminal
 
-En print, une fois un design créé, son rendu est contrôlable et contrôlé de bout en bout: de la conception jusqu’à l’impression finale.
+En print ou en vidéo, une fois un design créé, son rendu est contrôlable et contrôlé de bout en bout: de la conception jusqu’à la diffusion finale.
 
-En web, tout passe par deux canaux que le concepteur ne contrôle pas et dont vont largement dépendre l'expérience utilisateur: le navigateur et le terminal sur lequel celui-ci est hébergé. Là aussi, nous avons affaire à une large diversité de capacités: capacités tactiles, bande passante, support images, support vidéos, support CSS, support javascript, gyroscope, appareil photo, géolocalisation, etc.
+Au niveau du web, tout passe par deux canaux que le concepteur ne contrôle pas et dont vont largement dépendre l'expérience utilisateur: le navigateur et le terminal sur lequel celui-ci est hébergé. Là aussi, nous avons affaire à une large diversité de capacités: support tactile, bande passante, support images, support vidéos, support CSS, support javascript, gyroscope, appareil photo, géolocalisation, etc.
 
 Lorsque nous envisageons des solutions de design, nous devons tenir compte de cette seconde inconnue. Dans l’industrie, on se réfère souvent au concept de "[progresssive enhancement](https://resilientwebdesign.com/chapter6/)" selon lequel on va d’abord se concentrer sur le fait de délivrer une bonne expérience utilisateur de base, que l’on va enrichir pour les navigateurs et terminaux disposant de capacités plus avancées.
 
@@ -265,11 +267,13 @@ Lorsque nous envisageons des solutions de design, nous devons tenir compte de ce
 
 #### Troisième inconnue: le contexte (humain) d’utilisation
 
-Si nous pouvons en général définir assez précisément nos publics cibles (à travers des études de marché, des personas, etc.), le contexte d’utilisation de notre site ou application peut varier grandement et nous est la plupart du temps complètement inconnu.
+Si nous pouvons en général définir assez précisément nos publics cibles (à travers des études de marché, des personas, etc.), le contexte d’utilisation d'un site ou d'une application peut varier grandement et nous est la plupart du temps complètement inconnu.
 
-L’utilisateur mobile peut utiliser son téléphone debout dans son train matinal, être facilement distrait, ne disposer que d’une seule main et d’une connectivité faible. Ce même utilisateur mobile peut utiliser sa tablette, confortablement installé dans le canapé du lobby de son hôtel. Il est dans ce cas très concentré et dispose d’une connexion à haut débit. Les circonstances et le contexte d’utilisation est tout aussi divers pour un utilisateur d’ordinateur fixe.
+L’utilisateur mobile peut utiliser son téléphone debout dans son train matinal, être facilement distrait, ne disposer que d’une seule main et d’une connectivité faible. Ce même utilisateur mobile peut utiliser sa tablette, confortablement installé dans le canapé du lobby de son entreprise. Il est dans ce cas très concentré et dispose d’une connexion à haut débit. Les circonstances et le contexte d’utilisation est tout aussi divers pour un utilisateur d’ordinateur fixe.
 
-La solution est ici de toujours center les solutions sur l'utilisateur. Typiquement les projets web impliquent les utilisaturs très tôt dans la définition des solutions envisagées et passent par des cycles d'itérations relativement courts dans lesquels les feedbacks utilisateurs et les tests sont extrèmement importants. Un aspect intéressant du medium Internet étant la capacité d'avoir très rapidement des retours sous forme de données quantitatives et qualitatives (analytics, interviews utilisateurs, tests, etc.).
+La solution est ici de toujours centrer les solutions sur l'utilisateur. Typiquement, les projets web impliquent les utilisaturs très tôt dans la définition des solutions envisagées et passent par des cycles d'itérations relativement courts dans lesquels les feedbacks utilisateurs et les tests sont extrèmement importants.
+
+Un autre aspect intéressant du medium Internet est la capacité d'avoir très rapidement des retours sous forme de données quantitatives et qualitatives (analytics, interviews utilisateurs, tests, etc.).
 
 ### Grands principes du design web
 
@@ -279,7 +283,7 @@ Les principales différences entre le design web et le design print ou audiovisu
 
 Afin de répondre à la diversité croissante des tailles d'écrans et des résolutions existant sur le marché, un des grands principes est de commencer à designer pour les contraintes maximales, celles des petits écrans de smartphones et des bandes passantes limitées. C'est le principe du "[mobile first](https://www.lukew.com/ff/entry.asp?933)" qui a des implications tant en termes de performance que de mise en page.
 
-Une fois que votre site ou votre application web fonctionne pour ces derniers, vous pouvez petit à petit passer aux écrans de taille moyenne et puis aux écrans plus larges et aux débits de connections pus stables et plus puissantes. L'idée centrale du "Responsive Web Design" lancée par Ethan Marcotte est celle d'un continuum tout au long duqel votre design "répond" à l'espace utile disponible et à la résolution de l'écran.
+Une fois que votre site ou votre application web fonctionne pour ces derniers, vous pouvez petit à petit passer aux écrans de taille moyenne et puis aux écrans plus larges et aux connections plus stables et de plus hauts débits. L'idée centrale du "[Responsive Web Design](https://alistapart.com/article/responsive-web-design)" lancée par Ethan Marcotte est celle d'un continuum tout au long duqel votre design "répond" à l'espace utile disponible et à la résolution de l'écran.
 
 Les trois pières angulaires du responsive sont:
 
@@ -289,7 +293,9 @@ Les trois pières angulaires du responsive sont:
 
 Ces principes sont aplliqués au niveau macro (layout global) mais également au niveau micro (composants). Si le layout de votre page réagit à l'espace disponible à l'écran, il en va de même pour une interface de navigation, un footer ou encore à un composant "news" dans un site de presse.
 
-Les media fluides ont également des implications au niveau de la performance. Cela ne sert à rien de charger une image de 1000 pixels de large sur un écran qui en fait 320, même chose pour les videos. Un standard a été développé pour les images responsives avec `srcset`, `sizes`. La balise `<picture>` est à utiliser seulement si des images différentes sont nécessaires pour des raisons de direction artistique. En ce qui concerne les videos, des services tels que Youtube ou Vimeo restent la meilleure option au niveau de la performance. Ces services vont transcoder votre video dans divers formats ainsi que dans différentes résolutions, ce qui vous garantira une compatibilité et des performances maximales.
+Les media fluides ont également des implications au niveau de la performance. Cela ne sert à rien de charger une image de 1000 pixels de large sur un écran qui en fait 320, même chose pour les videos. Un standard a été développé pour les images responsives avec `srcset`, `sizes`. La balise `<picture>` est à utiliser seulement si des images différentes sont nécessaires pour des raisons de direction artistique.
+
+En ce qui concerne les videos, des services tels que Youtube ou Vimeo restent la meilleure option au niveau de la performance. Ces services vont transcoder votre video dans divers formats ainsi que dans différentes résolutions, ce qui vous garantira une compatibilité et des performances maximales.
 
 *Exercice: inspecter quelques sites et applications responsives [Stripe](https://stripe.com/), [Opera de Paris](https://www.operadeparis.fr/), [AirBnB](https://www.airbnb.com/), [Google Drive](https://drive.google.com/)). Prêter attention à la typographie, aux grilles, aux interfaces de navigation, aux images et aux videos*
 
@@ -297,7 +303,7 @@ Les media fluides ont également des implications au niveau de la performance. C
 
 L'idée du progressive enhancement est similaire à celle du Responsive Web Design mais dans le domaine des capacités du navigateur et du terminal. Selon Jeremy Keith dans "[Resilient Web Design](https://resilientwebdesign.com/chapter6/)", cette idée repose sur trois étapes simples:
 
-1. Identifier les contenus ou les fonctionalités principaux / essentiels
+1. Identifier les fonctionalités ou les contenus principaux / essentiels
 2. Rendre disponibles ces contenus ou ces fonctionalités à l'aide des technologies les plus silmples possibles
 3. Construire sur cette base en utilisant les technologies plus modernes
 
@@ -321,13 +327,11 @@ Depuis quelques années, [Thoughtbot](https://thoughtbot.com/) et [Google Ventur
 
 Si vous souhaitez en savoir plus concernant le design sprint, [le petit guide online de Thoughtbot](https://thoughtbot.com/product-design-sprint/guide) est très bien fait et vous donne quelques examples d'activités ou d'exercices à réaliser avec vos clients.
 
-Cette méthodologie forme également une bonne base si vous n'avez qu'un u deux jours à passer sur la phase de recherche.
+Cette méthodologie forme également une bonne base si vous n'avez qu'un ou deux jours à passer sur la phase de recherche.
 
 ## Design web en pratique
 
 Après avoir introduit le sujet par un peu de théorie, passons à la pratique. La suite de ce cours se veut être un guide pratique pour réaliser efficacement des designs pour le web, qu'il s'agisse d'un site ou d'une application.
-
-Voici le plan de bataille:
 
 1. Recherche et stratégie
 2. Couleurs et palette
@@ -341,9 +345,9 @@ Voici le plan de bataille:
 
 La phase de recherche vise à cerner les tenants et aboutissants du projet, tant du point de vue des utilisateurs (publics cibles, besoins, contexte) que du business (objectifs, KPI, compétition).
 
-La permière chose à faire est de bien cerner quels sont les publics cibles. Pour cela, rien ne remplace un contact direct avec des utilisateurs ou, à défaut, avec les responsables du support ou du marketting qui sont en contact direct avec les utilisateurs. De simples activités comme un future perfect / pitch, des [proto-personas](https://uxmag.com/articles/using-proto-personas-for-executive-alignment) (voici des [photos utilisables créées par Jason Travis](http://www.jasontravisphoto.com/persona/)) et quelques [job stories](https://jtbd.info/replacing-the-user-story-with-the-job-story-af7cdee10c27) par persona peuvent déjà s'avérer très utiles.
+La permière chose à faire est de bien cerner quels sont les publics cibles. Pour cela, rien ne remplace un contact direct avec des utilisateurs ou, à défaut, avec les responsables du support ou du marketting qui sont en contact avec eux. De simples activités comme un future perfect / pitch, des [proto-personas](https://uxmag.com/articles/using-proto-personas-for-executive-alignment) (voici des [photos utilisables créées par Jason Travis](http://www.jasontravisphoto.com/persona/)) et quelques [job stories](https://jtbd.info/replacing-the-user-story-with-the-job-story-af7cdee10c27) par persona peuvent déjà s'avérer très utiles.
 
-En regard des personas, il importe de se pencher sur les objectifs business. Pour chaque personas, demandez-vous comment votre site ou votre application peut les aider. De manière plus générale, quels sont les indicateurs (mesurables) qui vous permettrons de dire si votre projet à atteint ses objectifs et rencontre les besoins des clients.
+En regard des personas, il importe de se pencher sur les objectifs business. Pour chaque personas, demandez-vous comment votre site ou votre application peut les aider. De manière plus générale, quels sont les indicateurs (mesurables) qui vous permettront de dire si votre projet à atteint ses objectifs et rencontre les besoins des clients.
 
 Lors de cette phase de recherche, il est bon de se pencher sur la compétition. Quels sont les sites ou les aplications qui répondent aux même besoins? Quels sont leurs points forts et leurs points faibles?
 
@@ -390,14 +394,16 @@ Un exercice difficile en typographie consiste à trouver plusieurs polices qui v
 
 - **Superfamilies**: certaines polices forment une famille de polices et sont designées comme telles. Elles contiennent souvent des polices différentes (serif et sans-serif par exemple), utilisables à différentes tailles (caption, display, etc.) ou ayant différentes approches / kernings (Normal, Condensed, Extended). En voici quelques exemples sur Typekit: Calluna et Calluna Sans, Freight Text et Freight Sans, etc.
 - **Designer / Fondrie identique**: voici un raccourci par rapport au point suivant. En général, des polices même différentes au premier regard on pas mal de caractéristiques communes si elles sont designées par la même personne ou la même fondrie. Pensez donc à aller voir de ce côté lorsque vous cherche un accord entre deux polices.
-- **Caractéristiques communes**: cherchez des polices qui sont suffisemment différentes que pour êtres distinguées l'une de l'aure facilement mais qui ont des caractéristiques communes (formes des lettres, x-height, etc.) ou qui ont été développées dans un même contexte ou selon un conceopt similaire.
+- **Caractéristiques communes**: cherchez des polices qui sont suffisamment différentes que pour êtres distinguées facilement l'une de l'autre mais qui ont des caractéristiques communes (formes des lettres, x-height, etc.) ou qui ont été développées dans un même contexte ou selon un conceopt similaire.
 - **Outils**: des outils et services tels que Google Fonts ou Typekit vous proposent des pistes intéressantes pour le font pairing. N'hésitez pas non plus à inspecter des sites que vous appréciez au niveau typographique.
 
 *Exercice: Voici [quelques](http://femmebot.github.io/google-type/) [exemples](http://hellohappy.org/beautiful-web-type/) de typographies réussies avec Google fonts. Analysons-les.*
 
-Une fois vos polices choisies, l'étape suivante consiste à mettre en place une échelle typographique et un rythme vertical. Pour ce qui est de l'échelle typographique, vous pouvez-vous appuyer sur "[Modular Scale](https://www.modularscale.com/)" un outil développé par [Tim Brown](http://tbrown.org/). Pour ce qui est du rythme vertical (nous y reviendrons), le plus facile est de prendre un échelle à laquelle vous allez vous tenir pour ce qui est de l'interligne et de tous les espaces verticaux. Les échelles les plus populaires sont les échelles [de cinq](https://guides.area17.com/design-techniques/#baseline-grid), de six ou de [huit](https://themefoundation.com/vertical-rhythm-responsive-typography/).
+Une fois vos polices choisies, l'étape suivante consiste à mettre en place une échelle typographique et un rythme vertical. Pour ce qui est de l'échelle typographique, vous pouvez-vous appuyer sur "[Modular Scale](https://www.modularscale.com/)" un outil développé par [Tim Brown](http://tbrown.org/).
 
-Personellement, [je ne souscris pas forcément à une grille stricte](http://jasonsantamaria.com/articles/baseline-grids-on-the-web) (baseline grid) difficile à maintenir sur un médium aussi fluide que le web . Par contre, je suis attentif à avoir un rythme vertical aussi cohérent que possible en essayant que tous les espacements verticaux ainsi que les hauteurs de lignes soient des multiples de l'échelle de base.
+Pour ce qui est du rythme vertical (nous y reviendrons), le plus facile est de prendre un échelle à laquelle vous allez vous tenir pour ce qui est de l'interligne et de tous les espaces verticaux. Les échelles les plus populaires sont les échelles [de cinq](https://guides.area17.com/design-techniques/#baseline-grid), de six ou de [huit](https://themefoundation.com/vertical-rhythm-responsive-typography/).
+
+Personellement, [je ne souscris pas forcément à une grille stricte](http://jasonsantamaria.com/articles/baseline-grids-on-the-web) (baseline grid) difficile à maintenir sur un médium aussi fluide que le web. Par contre, je suis attentif à avoir un rythme vertical aussi cohérent que possible en essayant que tous les espacements verticaux ainsi que les hauteurs de lignes soient des multiples de l'échelle de base.
 
 Un élément important dans vos compositions typographiques est de faire varier les caractéristiques de vos éléments pour créer du contraste, des tensions et des similitudes. Vous avez pour ce faire beaucoup d'outils à votre disposition:
 
@@ -423,7 +429,7 @@ Outre le texte, images, illustrations, icônes et autres média plus interactifs
 
 ### Icônes
 
-Après être passé par diverses transitions (images, icon fonts, etc.) les icones utilisées aujourd'hui sont dans un format vectoriel appellé SVG (Scalable Vector Graphics).
+Après être passé par diverses options (images, icon fonts, etc.) les icones utilisées aujourd'hui sont dans un format vectoriel appellé SVG (Scalable Vector Graphics).
 
 Les fichiers SVG sont des fichiers textes qui ressemblent à du HTML et peuvent être liés comme une image et se comporter comme telle ou bien être intégrés au document, ce qui offre les avantages d'être manipulable directment par JS ou CSS, ce qui permet de leur appliquer des transitions ou des animations.
 
@@ -431,17 +437,19 @@ Généralement, ces fichiers vectoriel sont exportés à partir de Figma, Sketch
 
 *Exercice: exemple de fichier SVG*
 
+*Exercice: exporter une icone à partir de Firma et l'optimiser avec [SVGOMG](https://jakearchibald.github.io/svgomg/)*
+
 *Exercice: faire une transition avec une icone dans un lien*
 
 ### Images et illustrations
 
 Images ou illustrations sur le web peuvent être soit des contenus (chargées depuis la page HTML) soit décoratives (chargées depuis CSS ou JS). Dans tous les cas, ce sont des assets lourds à charger, il faut donc les optimiser au mieux, en terme de format (choisir le format le moins lourd en regard de la nature de l'image) comme en terme de poids (optimisation).
 
-*Exercice: comparer fichier optimisés et non-optimisés*
+*Exercice: comparer fichiers optimisés et non-optimisés*
 
 #### Images de contenus (HTML)
 
-Les imgages de contenus peuvent être dans divers formats comme vu plus haut. Les images comme éléments de contenus peuvent être fluides (layout) mais également responsives (performance) pour charger un fichier différent suivants les résolutions ou les tailles d'écran.
+Les images de contenus peuvent être dans divers formats comme vu plus haut. Les images comme éléments de contenus peuvent être fluides (layout) mais également responsives (performance) pour charger un fichier différent suivants les résolutions ou les tailles d'écran.
 
 Pour rendre une image fluide au niveau du layout, il suffit de spécifier que sa largeur maximum est 100% de son container parent. Il faut pour cela que ses dimensions soient plus importantes que la largeur maximale de son parent.
 
@@ -464,7 +472,7 @@ Si vous souhaitez des hauteur et largeurs variables sans distordre l'image, vous
 }
 ```
 
-Si CSS peut règler les choses sur le plan de la mise en page, il est contre prodcutif de charger une grande image si la page ou vue est affichée sur un petit écran comme celui d'un smartphone. Grâces aux [images responsives](https://www.smashingmagazine.com/2014/05/responsive-images-done-right-guide-picture-srcset/) et à `srcset`, `sizes`] et `<picture>`, le bavigateur fait une grande partie du travail pour vous.
+Si CSS peut règler les choses sur le plan de la mise en page, il est contre productif de charger une grande image si la page ou vue est affichée sur un petit écran comme celui d'un smartphone. Grâces aux [images responsives](https://www.smashingmagazine.com/2014/05/responsive-images-done-right-guide-picture-srcset/) et à `srcset`, `sizes`] et `<picture>`, le navigateur fait une grande partie du travail pour vous.
 
 Uitliser `srcset` et `sizes` si vous souhaiter servir une image identique mais à des tailles différentes suivant la résolution et la taille d'écran.
 
@@ -498,7 +506,7 @@ Si vous souhaiter charger une iamge différente (cadrage, orientation, etc) suiv
 
 ### Images de background
 
-Les images sont également utilisées comme élements de background des divers éléments (boites) qui composent une page ou une vue. Ces images de background peuvent avoir différentes caractéristiques définies par CSS (répétées ou pas, positionnées, superposées, mises à l'échelle, etc.), ce qui en fait des composants importants de n'importe quel design.
+Les images sont également utilisées comme élements d'arrière plan (background) des divers éléments (boites) qui composent une page ou une vue. Ces images de background peuvent avoir différentes caractéristiques définies par CSS (répétées ou pas, positionnées, superposées, mises à l'échelle, etc.), ce qui en fait des composants importants de n'importe quel design.
 
 ```css
 /* texture répétée */
@@ -530,13 +538,13 @@ Les images sont également utilisées comme élements de background des divers �
 }
 ```
 
-*Exercice: réaliser une banner avec des images de background dans Figma et en code*
+*Exercice: réaliser une banner avec des images de background ou des gradients dans Figma et en code*
 
 ### Effets: filtres et masques
 
 Les dégradés, les filtres, les masques et les blend modes sont également très utilisés pour ajouter des effets aux designs web.
 
-Commençons par [les dégradés](https://developer.mozilla.org/fr/docs/Web/CSS/Utilisation_de_d%C3%A9grad%C3%A9s_CSS) qui peuvent être créés très silmplement en CSS, qu'ils soient radiaux ou linéaires.
+Commençons par [les dégradés](https://developer.mozilla.org/fr/docs/Web/CSS/Utilisation_de_d%C3%A9grad%C3%A9s_CSS) qui peuvent être créés très simplement en CSS, qu'ils soient radiaux ou linéaires.
 
 ```css
 /* linear gradient */
@@ -577,7 +585,9 @@ Les proprités `background-blend-mode` et `mix-blend-mode` permettent de modifie
 }
 ```
 
-Clipping et masking puvent également aider à apporter un peu de variété à vos images. Ces deux principes se ressemblent en ce qu'ils servent tous les deux à cacher certaines parties d'un élement. Le support au niveau des navigateurs n'est pas identique mais [voici une page de test par Yoksel](https://codepen.io/yoksel/full/fsdbu/) pour vérifier par vous mêmes.
+*Exercice: expérimenter avec filtres et blend modes dans Figma et en code*
+
+Clipping et masking peuvent également aider à apporter un peu de variété à vos images. Ces deux principes se ressemblent en ce qu'ils servent tous les deux à cacher certaines parties d'un élement. Le support au niveau des navigateurs n'est pas identique mais [voici une page de test par Yoksel](https://codepen.io/yoksel/full/fsdbu/) pour vérifier par vous mêmes.
 
 - masques: sont des images. Avec `mask-mode: luminance;` les parties noires du masque sont cachés, les parties blanches sont visibles. Avec `mask-mode: alpha;` les parties opaques du masque sont visibles et les parties transparentes cachées.
 - clips: sont des formes. ce qui est à l'intérieur de la forme est visible
@@ -585,27 +595,26 @@ Clipping et masking puvent également aider à apporter un peu de variété à v
 ```css
 /* appliqué à une <img> */
 .masked {
-  mask-image: url(../img/masks-scribbles.svg);
   -webkit-mask-image: url(../img/masks-scribbles.svg);
-  mask-repeat: no-repeat;
+  mask-image: url(../img/masks-scribbles.svg);
   -webkit-mask-repeat: no-repeat;
-
+  mask-repeat: no-repeat;
 }
 ```
 
 ```css
 /* appliqué à une <img> (ne fontionne qu'avec un svg interne pour Safari, Chrome et Opera) */
 .clipped-svg {
-  clip-path: url(../img/clip.svg#myClip);
   -webkit-clip-path: url(../img/clip.svg#myClip);
+  clip-path: url(../img/clip.svg#myClip);
 }
 ```
 
 ```css
 /* appliqué à une <img> */
 .clipped-polygon {
-  clip-path: polygon(20% 0%, 0% 20%, 30% 50%, 0% 80%, 20% 100%, 50% 70%, 80% 100%, 100% 80%, 70% 50%, 100% 20%, 80% 0%, 50% 30%);
   -webkit-clip-path: polygon(20% 0%, 0% 20%, 30% 50%, 0% 80%, 20% 100%, 50% 70%, 80% 100%, 100% 80%, 70% 50%, 100% 20%, 80% 0%, 50% 30%);
+  clip-path: polygon(20% 0%, 0% 20%, 30% 50%, 0% 80%, 20% 100%, 50% 70%, 80% 100%, 100% 80%, 70% 50%, 100% 20%, 80% 0%, 50% 30%);
 }
 ```
 
@@ -623,15 +632,15 @@ Clipping et masking puvent également aider à apporter un peu de variété à v
 
 Les SVG et les polygones étant animables, ainsi que les images utilisées comme background, il est possible de réaliser des masques animés en CSS ou en JS.
 
-*Exercice: expérimenter avec filtres, blend modes, clipping et masques dans Figma et en code*
+*Exercice: expérimenter avec clipping et masques dans Figma et en code*
 
 ### Videos
 
-Nous avons vu comment intégrer des videos dans vos documents HTML5. Ces videos peuvent être des éléments de contenu mais peuvent également être [utilisées de façon créative](https://www.nurturedigital.com/) [comme éléments de layout](https://www.kikk.be/2017/) sous forme de petites boucles simples. Les vidéos HTML5 offrent l'avantage d'être bien plus contrôlables via des attributs et une API video scriptable en JavaScript.
+Nous avons vu comment intégrer des videos dans vos documents HTML5. Ces videos peuvent être des éléments de contenu mais peuvent également être [utilisées de façon créative](https://www.nurturedigital.com/) [comme éléments de layout](https://www.kikk.be/2017/) sous forme de petites boucles simples. Les vidéos HTML5 offrent l'avantage contrôlables via des attributs et une API video scriptable en JavaScript.
 
-Par contre, les services tels que Youtube et Vimeo encodent et en servent automatiquement les videos en différentes résolutions et formats suivant le navigateur et la machine utilisées. Ils utilisent également des CDN qui améliorent encore les performances en faisant en corte que leserveur qui vous transmet la vidéo se trouve géographiquement le plus près possible de vous.
+Par contre, les services tels que Youtube et Vimeo encodent et en servent automatiquement les videos en différentes résolutions et formats suivant le navigateur et la machine utilisées. Ils utilisent également des CDN qui améliorent encore les performances en faisant en sorte que leserveur qui vous transmet la vidéo se trouve géographiquement le plus près possible de vous.
 
-Les videos HTML5 comme les videos servies via une `<iframe>` par des services tels que Youtube et Viemo peuvent facilement être rendues fluides et s'adapter à des layout responsive.
+Les videos HTML5 comme les videos servies via une `<iframe>` par des services tels que Youtube et Viemo peuvent facilement être rendues fluides et s'adapter à des layouts responsives.
 
 Pour les videos HTML5, la technique est la même que pour les images.
 
@@ -666,7 +675,7 @@ Pour les videos `<iframe>` il vous faut un élément autour.
 
 ## 5. Layout: Grilles et outils CSS
 
-En design, les grilles sont un outil essentiel. Elles vous permettent de structurer vos contenus et de créer des mises en page complexes et structurées dont les élements sont connectés les uns au autres par une structure sous-jascente.
+En design, les grilles sont un outil essentiel. Elles vous permettent de structurer vos contenus et de créer des mises en page complexes dont les élements sont connectés les uns au autres par une structure sous-jascente.
 
   > Nothing could be more useful to reach our intention than the Grid. The grid represents the basic structure of our graphic design, it helps to organize the content, it provides consistency, it gives an orderly look and it projects a level of intellectual elegance that we like to express.
 
@@ -694,7 +703,7 @@ Ces grilles peuvent être de différents types:
 
 Les grilles les plus courantes sur le web sont des grilles symétriques, souvent de 12 colonnes car 12 offre l'avantage d'être divisible par 2, 3 ou 4.
 
-Si un nombre de colonnes pair comme 8, 10, 12 ou 18 apporte un grand équilibre et une grade symétrie, ce genre de grilles peut parfois être ennuyeux. Les grilles ayant un nombre de colonnes impair 5, 7, 9 sont légèrement plus difficile à maîtriser mais apportent un dynamisme intéressant.
+Si un nombre de colonnes pair comme 8, 10, 12 ou 18 apporte un grand équilibre et une grande symétrie, ce genre de grilles peut parfois être ennuyeux. Les grilles ayant un nombre de colonnes impair 5, 7, 9 sont légèrement plus difficiles à maîtriser mais apportent un dynamisme intéressant.
 
 En parlant de dynamisme, n'oubliez pas que vous pouvez avoir des grilles sans gutter ou encore laisser des colonnes vides dans vos designs.
 
@@ -705,9 +714,11 @@ En parlant de dynamisme, n'oubliez pas que vous pouvez avoir des grilles sans gu
 
 *Exercice: design d'une grille responsive asymétrique pour trois tailles d'écran*
 
+*Exercice: expérimenter avec des colonnes vides*
+
 ### Rythme vertical et grilles typographiques
 
-Le rythme vertical d'une page est important. En print, cela se traduit souvent par une baseline grid ou grille typograohique stricte. Sur le web, une telle grille stricte est peu pratique pour les raisons suivantes:
+Le rythme vertical d'une page est important. En print, cela se traduit souvent par une baseline grid ou grille typographique stricte. Sur le web, une telle grille stricte est peu pratique pour les raisons suivantes:
 
 - ces grilles sont techniquement fragiles et difficile à implémenter avec succès
 - certains éléments ne respectent pas ces grilles et ont parfoi des ratio standards (images, videos, etc)
@@ -715,7 +726,9 @@ Le rythme vertical d'une page est important. En print, cela se traduit souvent p
 
 Plutôt que de faire tout correspondre à une baseline grid stricte, l'idée est plutôt de créer un rythme vertical en ayant une échelle stricte pour tous les espacements verticaux. Certains adoptent une grille de 10, d'autres une grille de 8 ou de 6. Encore une fois, tout dépend de vos contraintes et de votre typographie.
 
-*Exercice: rythme vertical et typographie pour trois cartes côte à côte*
+Cette grille typograohique sert également à la gestion des espaces dans les composants: boutons, listes et autres éléments utilisent également cette grille typographique.
+
+*Exercice: rythme vertical et typographie pour trois cartes côte à côte avec des boutons de call to action*
 
 ### Outils CSS au niveau du layout
 
@@ -1011,11 +1024,11 @@ Vous pouvez également utiliser `grid-auto-flow: [row (default) | columns | dens
 
 ## 6. Transitions et Animations
 
-Le web actuel repose également sur les transitions et les animations. Celles-ci vont des plus simples aux plus complexes et emmetent en jeux différentes technologies.
+Le web actuel repose également sur les transitions et les animations. Celles-ci vont des plus simples aux plus complexes et mettent en jeux différentes technologies.
 
 ### Transitions CSS
 
-Les transtions CSS sont sans doute ce qu'il à de plus simple à comprendre. Prenons un simple bouton qui comporte un changement d'état au survol de la souris. Si nous n'avons pas de transition, le passage entre les deux états se fait immédiatement.
+Les transtions CSS sont sans doute les plus simples à comprendre. Prenons un simple bouton qui comporte un changement d'état au survol de la souris. Si nous n'avons pas de transition, le passage entre les deux états se fait immédiatement.
 
 Les transition CSS sont applicables à [une grande variétés de propriétés CSS](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties).
 
@@ -1043,7 +1056,7 @@ Les transition CSS sont applicables à [une grande variétés de propriétés CS
 }
 ```
 
-Les transitions CSS sont faciles à mettre en oeuvre et à maniouler via JavaScript. Elles permettent de réaliser une certaine palette d'effets mais elles ont également leurs limitations:
+Les transitions CSS sont faciles à mettre en oeuvre et à manipuler via JavaScript. Elles permettent de réaliser une certaine palette d'effets mais elles ont également leurs limitations:
 
 - les transtions se font toujours d'un état A vers un état B, sans étapes intermédiaires. Pour contrôler plus finement les étapes, il faut se tourner vers les animations CSS.
 - les transitions ne peuvent pas effectuer de loop ou d'itération. Si vous souhaitez une animation en boucle ou ayant plusieurs itérations, il faut vous tourner vers les animations.
@@ -1103,6 +1116,8 @@ Les animations CSS fonctionnent en spécifiant plusieurs keyframes et les change
 }
 ```
 
+Ces animations permettent un contrôle plus fins des étapes et du timing. Elles sont également réutilisables une fois définies et peuvent tourner en boucle ou un certain nombre de fois.
+
 ### Déclenchement au scroll
 
 Avec l'aide Javascript, les transitions et animations CSS peuvent facilement être [déclenchées via le scroll](http://dogstudio.be).
@@ -1113,13 +1128,17 @@ Avec l'aide Javascript, les transitions et animations CSS peuvent facilement êt
 
 ## Animations Javascript
 
-Web animation API offre les mêmes possibilités que les animations CSS offre bien plus de contrôle. Un bon support dans les divers navigateurs et la présence d'un polyfill en fait le choix par défaut si vous avez besoin d'interactivité, d'effets poussé ou de séquences d'animations chainées les unes aux autres. Bref, si vous avez besoin de quelque chose de plus riche que ce qu'offrent des animations déclaratives en CSS, cette technologie native deviendra intéressante lorsque le support des navigateurs augmentera.
+Les animations en Javascript offrent bien plus de contrôle que les animations CSS si vous avez besoin d'interactivité, d'effets poussé ou de séquences d'animations chainées les unes aux autres.
 
-Il est également possible d'utiliser requestAnimationFrame. Cette méthode vous permet de faire à peu près n'importe quoi mais vous devez tout créer vous-même, ce qui rend cette approche beacuoup plus complexe et vous oblige à gérer vous-même les problèmes de performance éventuels.
+Des librairies telles que [GSAP de Greensock](https://greensock.com/gsap) offrent une grande facilité d'utilisation et permettent de créer des animations complexes avec SVG, HTML ou Canvas. Ces librairies sont extérieures aux navigateurs mais offrent une grande palette de possibilités aux dévelopeurs. En voici un petit [exemple avec un formulaire de login]().
 
-Ajourd'hui, la librairies JavaScript la plus utilisée pour ls animations complexes en JavaScript est [GSAP de Greensock](https://greensock.com/gsap), qui vous permet d'utiliser une timeline pour contrôler finement toutes vos animations, leur séquencage et leur déroulement.
+Au niveau des navigateurs justement, Web animation API est un standard qui se développe bien et dont les fonctions de bases bénéfiscient d'un bon support dans les navigateurs récents. Cette spécification est déjà intéressante à utiliser aujourd'hui et deviendra encore plus importante lorsque le support des navigateurs augmentera pour les fonctions avancées (séquences et timeline). Il est également possible d'utiliser `requestAnimationFrame`, qui est plus complexe à gérer au niveau performance mais vous permet de créer à peu près n'importe quelle animation.
 
-*Exercice: animations et transitrions dans Figma et dans le code*
+L'animation est devenue une part immortante des interfaces et du web en général, en partie parceque nous y sommes habitués sur les plateformes mobiles natives comme iOS ou Androïd.
+
+Comme à son habitude, le web intègre cela et avance en direction d'une expérience utilisateur plus riches dans lesquelles l'animation devient de plus en plus importante.
+
+*Exercice: animations et transitions dans Figma et dans le code*
 
 ## 7. Design web: documents de delivery
 
@@ -1127,7 +1146,7 @@ Afin de présenter les designs web dans tous leurs aspects, [le plus efficace e
 
 ### Problèmes des documents statiques / uniques
 
-Classiquement, les designs à l’aide de [wireframes](https://dribbble.com/shots/1893359-Exelerate-Wireframes/attachments/322535) statiques qui se transforment finalement en [chartes graphiques statiques détaillées](https://dribbble.com/shots/1874207-Exelerate-Product-view/attachments/317155) réalisées sur Sketch , Figma ou Photoshop. Cette manière de travailler provient du print mais n’est pas adaptée au design web pour diverses raisons.
+Classiquement, les designs à l’aide de [wireframes](https://dribbble.com/shots/1893359-Exelerate-Wireframes/attachments/322535) statiques qui se transforment finalement en [chartes graphiques statiques détaillées](https://dribbble.com/shots/1874207-Exelerate-Product-view/attachments/317155) réalisées sur Sketch, Figma ou Photoshop. Cette manière de travailler provient du print mais n’est pas tpujours adaptée au design web pour diverses raisons.
 
 #### Non prise en compte des spécificités du medium
 
@@ -1135,9 +1154,9 @@ Ces documents ne sont pas à même de matérialiser efficacement les spécif
 
 #### Représentation irréaliste du produit fini
 
-De tels documents donnent une fausse image du produit fini. On habitue ainsi le client à voir une version “irréaliste” de son futur site.
+De tels documents donnent une fausse image du produit fini. On habitue ainsi le client à voir une version "irréaliste" de son futur site.
 
-La résolution des documents imprimés est plus élevée qu’un affichage sur écran, les pages sont présentées dans leur entièreté alors que -dans un navigateur- seule une petite portion en sera visible à la fois, les polices n’ont pas du tout le même rendu à l’écran.
+La résolution des documents imprimés est plus élevée qu’un affichage sur écran, les pages sont présentées dans leur entièreté alors que, dans un navigateur, seule une petite portion en sera visible à la fois, les polices n’ont pas du tout le même rendu à l’écran.
 
 Enfin, ces documents donnent l’impression que le site aura toujours le même rendu. Or, selon les navigateurs utilisés, un site n’a pas toujours la même apparence ni les mêmes comportements.
 
@@ -1172,6 +1191,7 @@ Il ne s'agit plus de produire des designs finalisés mais de pouvoir rapidement 
 ### Designers hybrides
 
 > [the design process] is about designing, prototyping and making. When you separate those, I think the final result suffers."
+
 > Jonathan Ive, March, 2012
 
 Cette phrase de Jonathan Ive pourrait sans problème être appliquée au web d’aujourd’hui, dans lequel le design, la création de prototypes et la réalisation technique sont de plus en plus intimement liés.
@@ -1182,7 +1202,7 @@ Pas forcément, mais cela aide beaucoup et cela permet de gagner du temps. Au mi
 
 Le travail des designers web à grandement évolué: nous devons maintenant créer des systèmes modulaires et flexibles et plus des interfaces fixes dans photoshop. Le nombre d’inconnues et d’élements entrant en ligne de compte dans un site Internet ne cesse d’augmenter.
 
-Cela requiert des changements dans les process et workflow utilisés mais aussi une plus grande collaboration et un dialogue plus étroit entre les différents intervenants
+Cela requiert des changements dans les processus et workflow utilisés mais aussi une plus grande collaboration et un dialogue plus étroit entre les différents intervenants
 
 > You must also address the very human issue of communication. Earlier and more frequent collaboration among team members and the client must become the rule in your workflow, not the exception. Content, design, and development team members must review and collaborate regularly at every stage in the creation process until the site is live. We can’t ‘throw it over the wall’ anymore— at least, not if we want our sites to be excellent. There are simply too many moving parts now. Go forth and collaborate.
 
